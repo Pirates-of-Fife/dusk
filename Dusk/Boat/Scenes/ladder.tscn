@@ -1,0 +1,26 @@
+[gd_scene load_steps=6 format=3 uid="uid://bi12w0j8jspsu"]
+
+[ext_resource type="PackedScene" uid="uid://uljmqicgbeae" path="res://Boat/GLB_Exports/Ladder/ladder.glb" id="1_dk04c"]
+[ext_resource type="Material" uid="uid://1ay88au6b41c" path="res://Boat/Scenes/Materials/ladder_mat.tres" id="2_4ekfu"]
+[ext_resource type="Script" path="res://Boat/Scenes/ladder.gd" id="2_edhsl"]
+[ext_resource type="PackedScene" uid="uid://bi8ebqsm3obsa" path="res://InteractableSystem/Interactable.tscn" id="3_mm5yt"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8dtwo"]
+size = Vector3(1.7207, 5.46439, 0.580566)
+
+[node name="ladder" instance=ExtResource("1_dk04c")]
+script = ExtResource("2_edhsl")
+
+[node name="Ladder" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_4ekfu")
+
+[node name="Interactable" parent="." index="1" node_paths=PackedStringArray("interaction_shape") instance=ExtResource("3_mm5yt")]
+ship_scale = true
+prompt_offset = 0.0
+interaction_shape = NodePath("CollisionShape3D")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Interactable" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.78153, -1.42348, 7.19884)
+shape = SubResource("BoxShape3D_8dtwo")
+
+[connection signal="interact" from="Interactable" to="." method="_on_interactable_interact"]

@@ -1,0 +1,45 @@
+[gd_scene load_steps=12 format=3 uid="uid://bbutqn22b1e4f"]
+
+[ext_resource type="PackedScene" uid="uid://dfdhwb0b0g5fy" path="res://Environment/Island0/Terrain/IslandAssets/hut/hut_assets/FloorAndWall/FloorAndWall.tscn" id="1_5rplm"]
+[ext_resource type="PackedScene" uid="uid://c2ya1y17iitaa" path="res://Environment/Island0/Terrain/IslandAssets/hut/hut_assets/Door/Door.tscn" id="2_kc6ga"]
+[ext_resource type="PackedScene" uid="uid://0ftt11sfa68h" path="res://Environment/Island0/Terrain/IslandAssets/hut/hut_assets/Roof/Roof.tscn" id="3_ukwfb"]
+[ext_resource type="PackedScene" uid="uid://g51b11hwheg8" path="res://Environment/Island0/Terrain/IslandAssets/hut/hut_assets/Bed/Bed.tscn" id="4_oenhv"]
+[ext_resource type="PackedScene" uid="uid://bapsj3phy7rmd" path="res://Environment/Island0/Terrain/IslandAssets/hut/hut_assets/Matress/Matress.tscn" id="5_5vg4d"]
+[ext_resource type="PackedScene" uid="uid://bpv5mbvt1s0ke" path="res://Environment/Island0/Terrain/IslandAssets/hut/hut_assets/Table/Table.tscn" id="6_4mmg6"]
+[ext_resource type="PackedScene" uid="uid://cuykk1prfgeqa" path="res://Environment/Island0/Terrain/IslandAssets/hut/hut_assets/WoodStickOne/WoodStickOne.tscn" id="7_0vlx7"]
+[ext_resource type="PackedScene" uid="uid://br7rlw4xbulhp" path="res://Environment/Island0/Terrain/IslandAssets/hut/hut_assets/WoodStickTwo/WoodStickTwo.tscn" id="8_h82m8"]
+[ext_resource type="PackedScene" uid="uid://3e1ledb5js4b" path="res://Environment/Island0/Terrain/IslandAssets/hut/hut_assets/Candle/Candle.tscn" id="9_7tcky"]
+[ext_resource type="PackedScene" uid="uid://dqwrumpc0eg80" path="res://Environment/Island0/Terrain/IslandAssets/hut/hut_assets/Note/note.tscn" id="10_l2njn"]
+[ext_resource type="PackedScene" uid="uid://cw18h75nlrojg" path="res://Map/MapPart.tscn" id="11_teygr"]
+
+[node name="Hut" type="Node3D"]
+
+[node name="FloorAndWall" parent="." instance=ExtResource("1_5rplm")]
+
+[node name="Door" parent="." instance=ExtResource("2_kc6ga")]
+
+[node name="Roof" parent="." instance=ExtResource("3_ukwfb")]
+
+[node name="Bed" parent="." instance=ExtResource("4_oenhv")]
+
+[node name="Matress" parent="." instance=ExtResource("5_5vg4d")]
+
+[node name="Table" parent="." instance=ExtResource("6_4mmg6")]
+
+[node name="WoodStickOne" parent="." instance=ExtResource("7_0vlx7")]
+
+[node name="WoodStickTwo" parent="." instance=ExtResource("8_h82m8")]
+
+[node name="Candle" parent="." instance=ExtResource("9_7tcky")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.79625, 0.686886, 1.36978)
+
+[node name="Note" parent="." instance=ExtResource("10_l2njn")]
+transform = Transform3D(-0.061846, 0.0486929, 0.996897, 0.00301504, 0.998814, -0.0485994, -0.998081, 2.32831e-09, -0.0619195, 1.17067, 1.08683, -2.20092)
+
+[node name="GPUParticlesCollisionBox3D" type="GPUParticlesCollisionBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.24564, 1.98971, -0.153297)
+size = Vector3(7.87885, 5, 5.1852)
+
+[node name="MapPart" parent="." instance=ExtResource("11_teygr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.70204, 0.697194, 1.79649)
+is_first_map = true

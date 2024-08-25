@@ -1,0 +1,17 @@
+[gd_resource type="StandardMaterial3D" load_steps=6 format=3 uid="uid://b0kwhyn08i2oo"]
+
+[ext_resource type="Texture2D" uid="uid://c232uj4mt4045" path="res://Boat/GLB_Exports/Interior/Radar_Screen/textures/radar_screen_mat_BaseColor.png" id="1_x03sw"]
+[ext_resource type="Texture2D" uid="uid://djktrmtlsvxdl" path="res://Boat/GLB_Exports/Interior/Radar_Screen/textures/radar_screen_mat_Displacement.png" id="2_eh1d6"]
+[ext_resource type="Texture2D" uid="uid://baljr3mvs387a" path="res://Boat/GLB_Exports/Interior/Radar_Screen/textures/radar_screen_mat_Metallic.png" id="3_a4d88"]
+[ext_resource type="Texture2D" uid="uid://b6iurijpnio5u" path="res://Boat/GLB_Exports/Interior/Radar_Screen/textures/radar_screen_mat_Normal.png" id="4_wgryg"]
+[ext_resource type="Texture2D" uid="uid://662vgfgnoqlq" path="res://Boat/GLB_Exports/Interior/Radar_Screen/textures/radar_screen_mat_Roughness.png" id="5_ur4fk"]
+
+[resource]
+albedo_texture = ExtResource("1_x03sw")
+metallic = 1.0
+metallic_texture = ExtResource("3_a4d88")
+roughness_texture = ExtResource("5_ur4fk")
+normal_enabled = true
+normal_texture = ExtResource("4_wgryg")
+heightmap_enabled = true
+heightmap_texture = ExtResource("2_eh1d6")

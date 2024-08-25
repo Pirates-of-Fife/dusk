@@ -1,0 +1,17 @@
+[gd_resource type="StandardMaterial3D" load_steps=6 format=3 uid="uid://48rbldf1g65v"]
+
+[ext_resource type="Texture2D" uid="uid://dotihofpu6bbd" path="res://Boat/GLB_Exports/Interior/Gauge/textures/gauge_mat_BaseColor.png" id="1_xv5mn"]
+[ext_resource type="Texture2D" uid="uid://bskevtxauw0hp" path="res://Boat/GLB_Exports/Interior/Gauge/textures/gauge_mat_Displacement.png" id="2_ex6y1"]
+[ext_resource type="Texture2D" uid="uid://nhyv11317dni" path="res://Boat/GLB_Exports/Interior/Gauge/textures/gauge_mat_Metallic.png" id="3_auca6"]
+[ext_resource type="Texture2D" uid="uid://dmylopibm85xc" path="res://Boat/GLB_Exports/Interior/Gauge/textures/gauge_mat_Normal.png" id="4_67sye"]
+[ext_resource type="Texture2D" uid="uid://duvmgpsjl4jdd" path="res://Boat/GLB_Exports/Interior/Gauge/textures/gauge_mat_Roughness.png" id="5_6bsik"]
+
+[resource]
+albedo_texture = ExtResource("1_xv5mn")
+metallic = 1.0
+metallic_texture = ExtResource("3_auca6")
+roughness_texture = ExtResource("5_6bsik")
+normal_enabled = true
+normal_texture = ExtResource("4_67sye")
+heightmap_enabled = true
+heightmap_texture = ExtResource("2_ex6y1")

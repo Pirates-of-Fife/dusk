@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://bj6mu0xjx85gb"]
+
+[ext_resource type="PackedScene" uid="uid://1tfj3alj3jih" path="res://Boat/GLB_Exports/Boat_Hull/boat_hull.glb" id="1_8rci6"]
+[ext_resource type="Material" uid="uid://cpgjeyjcy5ew7" path="res://Boat/Scenes/Materials/boat_hull_mat.tres" id="2_gbux7"]
+[ext_resource type="Material" uid="uid://duxnaa464fqg5" path="res://Boat/Scenes/Materials/boat_hull_wood_floor_mat.tres" id="3_8lygi"]
+
+[node name="Hull" instance=ExtResource("1_8rci6")]
+
+[node name="Hull" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_gbux7")
+surface_material_override/1 = ExtResource("3_8lygi")
+
+[node name="LeftEngine" parent="Hull" index="0"]
+surface_material_override/0 = ExtResource("2_gbux7")
+
+[node name="RightEngine" parent="Hull" index="1"]
+surface_material_override/0 = ExtResource("2_gbux7")

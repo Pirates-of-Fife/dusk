@@ -1,0 +1,17 @@
+[gd_resource type="StandardMaterial3D" load_steps=6 format=3 uid="uid://cipkoa5dnnwte"]
+
+[ext_resource type="Texture2D" uid="uid://b0bpalny6qxmj" path="res://Boat/GLB_Exports/Tyre/tyre_attachment/textures/DefaultMaterial_BaseColor.png" id="1_0wje8"]
+[ext_resource type="Texture2D" uid="uid://d0kukq8tgvgjt" path="res://Boat/GLB_Exports/Tyre/tyre_attachment/textures/DefaultMaterial_Displacement.png" id="2_gv7ci"]
+[ext_resource type="Texture2D" uid="uid://d147j273jbknd" path="res://Boat/GLB_Exports/Tyre/tyre_attachment/textures/DefaultMaterial_Metallic.png" id="3_o2ova"]
+[ext_resource type="Texture2D" uid="uid://1q3j1dfpfinn" path="res://Boat/GLB_Exports/Tyre/tyre_attachment/textures/DefaultMaterial_Normal.png" id="4_6w41o"]
+[ext_resource type="Texture2D" uid="uid://581d2bfevcp1" path="res://Boat/GLB_Exports/Tyre/tyre_attachment/textures/DefaultMaterial_Roughness.png" id="5_qmpau"]
+
+[resource]
+albedo_texture = ExtResource("1_0wje8")
+metallic = 1.0
+metallic_texture = ExtResource("3_o2ova")
+roughness_texture = ExtResource("5_qmpau")
+normal_enabled = true
+normal_texture = ExtResource("4_6w41o")
+heightmap_enabled = true
+heightmap_texture = ExtResource("2_gv7ci")

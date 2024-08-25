@@ -1,0 +1,67 @@
+[gd_scene load_steps=10 format=3 uid="uid://ca1aq2tdvsdfy"]
+
+[ext_resource type="Script" path="res://Environment/Island3/Terrain/IslandAssets/bunker/BunkerAudio.gd" id="1_3oivh"]
+[ext_resource type="PackedScene" uid="uid://b4mueswl32fcg" path="res://Environment/Island3/Terrain/IslandAssets/bunker/bunker_assets/bunkertest.glb" id="1_p7y4c"]
+[ext_resource type="AudioStream" uid="uid://d2am283hvyerx" path="res://UI/Main Menu/Dusk.wav" id="3_7n8nu"]
+[ext_resource type="PackedScene" uid="uid://bi8ebqsm3obsa" path="res://InteractableSystem/Interactable.tscn" id="4_kvhvd"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0awq3"]
+size = Vector3(6.11496, 0.001, 6.48425)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_v88sq"]
+size = Vector3(7.79224, 6.50684, 0.329102)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_px0tt"]
+size = Vector3(3.2485, 9.51294, 6.6228)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_dbejx"]
+size = Vector3(1, 5.88281, 5.9054)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4sp5x"]
+size = Vector3(0.427002, 1.89209, 2.02448)
+
+[node name="Bunker" type="Node3D"]
+script = ExtResource("1_3oivh")
+start_distance = 500.0
+distance_where_music_is_at_max_loudness = 10.0
+min_volume_db = -40.0
+max_volume_db = -10.0
+
+[node name="bunkertest" parent="." instance=ExtResource("1_p7y4c")]
+transform = Transform3D(0.37, 0, 0, 0, 0.37, 0, 0, 0, 0.37, 0, 0, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="bunkertest"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="bunkertest/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.194626, 0.201437, -0.197327)
+shape = SubResource("BoxShape3D_0awq3")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="bunkertest/StaticBody3D"]
+transform = Transform3D(0.86934, -0.494215, 0, 0.494215, 0.86934, 0, 0, 0, 1, -1.89447, 1.05064, 3.12065)
+shape = SubResource("BoxShape3D_v88sq")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="bunkertest/StaticBody3D"]
+transform = Transform3D(0.86934, -0.494215, 0, 0.494215, 0.86934, 0, 0, 0, 1, -1.89447, 1.05064, -3.05964)
+shape = SubResource("BoxShape3D_v88sq")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="bunkertest/StaticBody3D"]
+transform = Transform3D(0.625488, 0.780234, 0, -0.780234, 0.625488, 0, 0, 0, 1, -6.57249, 1.61239, 0.0455323)
+shape = SubResource("BoxShape3D_px0tt")
+
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="bunkertest/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.05768, 2.64503, 0.0359234)
+shape = SubResource("BoxShape3D_dbejx")
+
+[node name="DuskMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_7n8nu")
+bus = &"EndMusic"
+
+[node name="Interactable" parent="." node_paths=PackedStringArray("interaction_shape") instance=ExtResource("4_kvhvd")]
+prompt_offset = 0.0
+interaction_shape = NodePath("CollisionShape3D")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Interactable"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.18121, 1.12589, -0.0960999)
+shape = SubResource("BoxShape3D_4sp5x")
+
+[connection signal="interact" from="Interactable" to="." method="_on_interactable_interact"]

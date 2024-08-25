@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://pymrrl7yk55d"]
+
+[ext_resource type="Script" path="res://Environment/Vegitation/Trees/TreeAssets/treesizerandom.gd" id="1_iqp18"]
+[ext_resource type="PackedScene" uid="uid://rh4avhw5y8uv" path="res://Environment/Vegitation/Trees/TreeAssets/tree3.glb" id="2_hcx3c"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1ooo7"]
+size = Vector3(1, 9.03625, 1)
+
+[node name="Tree3" type="Node3D"]
+script = ExtResource("1_iqp18")
+
+[node name="tree3" parent="." instance=ExtResource("2_hcx3c")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -150.31, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(0.16, 0, 0, 0, 0.16, 0, 0, 0, 0.16, 0, 150.993, 0)
+shape = SubResource("BoxShape3D_1ooo7")

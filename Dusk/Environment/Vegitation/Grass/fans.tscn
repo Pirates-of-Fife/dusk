@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://dvf2dy2brwg30"]
+
+[ext_resource type="PackedScene" uid="uid://c87h3r07yt5fv" path="res://Environment/Vegitation/Grass/GrassAssets/fern_grass_02.glb" id="1_1o1dd"]
+
+[node name="Fans" type="Node3D"]
+
+[node name="Sketchfab_Scene" parent="." instance=ExtResource("1_1o1dd")]
+transform = Transform3D(16.186, 0, 0, 0, 16.186, 0, 0, 0, 16.186, 0, 0, 0)

@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://cfq8alnqvj3tj"]
+
+[ext_resource type="Script" path="res://Sound/Boat/Engine/EngineSound.gd" id="1_u8en2"]
+[ext_resource type="AudioStream" uid="uid://cc555h4asygui" path="res://Sound/Boat/Engine/engine_M000.wav" id="2_vc8kv"]
+
+[sub_resource type="Curve" id="Curve_kgi2t"]
+max_value = 2.0
+_data = [Vector2(0, 0.075), 0.0, 0.0, 0, 0, Vector2(0.0301508, 0.15), 0.0, 0.0, 0, 0, Vector2(0.040201, 0.3125), 0.0, 0.0, 0, 0, Vector2(0.0703518, 0.325), 0.0, 0.0, 0, 0, Vector2(0.0929648, 0.4625), 0.0, 0.0, 0, 0, Vector2(0.334171, 0.8875), 5.11714, 5.11714, 0, 0, Vector2(1, 2), 0.0, 0.0, 0, 0]
+point_count = 7
+
+[node name="EngineSound" type="Node3D"]
+script = ExtResource("1_u8en2")
+pitch_scale_curve = SubResource("Curve_kgi2t")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("2_vc8kv")
+autoplay = true
+
+[connection signal="finished" from="AudioStreamPlayer3D" to="." method="_on_audio_stream_player_3d_finished"]

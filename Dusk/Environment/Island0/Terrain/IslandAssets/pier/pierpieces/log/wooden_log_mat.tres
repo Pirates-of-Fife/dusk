@@ -1,0 +1,14 @@
+[gd_resource type="StandardMaterial3D" load_steps=5 format=3 uid="uid://b07uj2u0f751c"]
+
+[ext_resource type="Texture2D" uid="uid://fq5wes7mqsim" path="res://Environment/Island0/Terrain/IslandAssets/pier/pierpieces/log/Log_BaseColor.png" id="1_00h3p"]
+[ext_resource type="Texture2D" uid="uid://q2get581qgoi" path="res://Environment/Island0/Terrain/IslandAssets/pier/pierpieces/log/Log_Metallic.png" id="2_sermg"]
+[ext_resource type="Texture2D" uid="uid://d3gdgeifuii87" path="res://Environment/Island0/Terrain/IslandAssets/pier/pierpieces/log/Log_Normal.png" id="3_1m74l"]
+[ext_resource type="Texture2D" uid="uid://djlhvaew2w62k" path="res://Environment/Island0/Terrain/IslandAssets/pier/pierpieces/log/Log_Roughness.png" id="4_cxjw2"]
+
+[resource]
+albedo_texture = ExtResource("1_00h3p")
+metallic = 1.0
+metallic_texture = ExtResource("2_sermg")
+roughness_texture = ExtResource("4_cxjw2")
+normal_enabled = true
+normal_texture = ExtResource("3_1m74l")

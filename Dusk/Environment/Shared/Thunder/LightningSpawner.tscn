@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://dbd4mqwh1jpp1"]
+
+[ext_resource type="Script" path="res://Environment/Shared/Thunder/LightningSpawner.gd" id="1_7bip1"]
+
+[node name="LightningSpawner" type="Node3D"]
+script = ExtResource("1_7bip1")
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

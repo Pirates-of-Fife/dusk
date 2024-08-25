@@ -1,0 +1,88 @@
+[gd_scene load_steps=14 format=3 uid="uid://sg4vkrll1j6"]
+
+[ext_resource type="Material" uid="uid://bwratgro0x321" path="res://Water/water_mat.tres" id="1_73qt5"]
+[ext_resource type="Script" path="res://Water/Water.gd" id="2_0jcwu"]
+[ext_resource type="PackedScene" uid="uid://bmacr6agbv47a" path="res://Boat/Boat/Boat.tscn" id="3_453h2"]
+[ext_resource type="PackedScene" uid="uid://brh07riyg1qv0" path="res://FirstPersonController/Player.tscn" id="4_5o06l"]
+[ext_resource type="PackedScene" uid="uid://b047wo4ee5aku" path="res://Sound/Ambience/AmbientSound.tscn" id="5_yxus0"]
+[ext_resource type="PackedScene" uid="uid://b4wyblhah757a" path="res://Environment/Island0/Terrain/Island0_Terrain.tscn" id="6_c2k28"]
+[ext_resource type="PackedScene" uid="uid://boq4u3boi7u4l" path="res://UI/Main Menu/menu.tscn" id="7_oexl6"]
+[ext_resource type="Texture2D" uid="uid://50wc5e2nta1h" path="res://Artwork/Dusk Logo White.svg" id="8_tegn7"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_iet3p"]
+material = ExtResource("1_73qt5")
+size = Vector2(5000, 5000)
+
+[sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_8mwxs"]
+rayleigh_coefficient = 4.4
+rayleigh_color = Color(0.235294, 0.458824, 0.372549, 1)
+mie_coefficient = 0.17
+sun_disk_scale = 170.66
+ground_color = Color(0.713726, 0.192157, 0.172549, 1)
+energy_multiplier = 0.5
+
+[sub_resource type="Sky" id="Sky_6rhby"]
+sky_material = SubResource("PhysicalSkyMaterial_8mwxs")
+
+[sub_resource type="Environment" id="Environment_3mo46"]
+background_mode = 2
+sky = SubResource("Sky_6rhby")
+fog_enabled = true
+fog_light_color = Color(0.517647, 0.564706, 0.607843, 1)
+
+[sub_resource type="CameraAttributesPhysical" id="CameraAttributesPhysical_bnbnt"]
+
+[node name="MainMenu" type="Node3D"]
+
+[node name="Water" type="MeshInstance3D" parent="."]
+mesh = SubResource("PlaneMesh_iet3p")
+script = ExtResource("2_0jcwu")
+
+[node name="Boat" parent="." instance=ExtResource("3_453h2")]
+transform = Transform3D(0.446198, 0, -0.894934, 0, 1, 0, 0.894934, 0, 0.446198, -173.135, 1.451, 48.8)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_3mo46")
+camera_attributes = SubResource("CameraAttributesPhysical_bnbnt")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.345495, -0.93833, 0.0130532, 0, 0.0139098, 0.999903, -0.938421, 0.345461, -0.00480576, 523.629, 8.89441, -269.865)
+light_color = Color(0.980392, 0.941176, 1, 1)
+light_energy = 0.1
+shadow_enabled = true
+
+[node name="Player" parent="." instance=ExtResource("4_5o06l")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.03572, 4.04704, -0.770467)
+
+[node name="AmbientSound" parent="." instance=ExtResource("5_yxus0")]
+
+[node name="Island0Terrain" parent="." instance=ExtResource("6_c2k28")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -209.03, -2.30322, -18.9957)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-0.325568, 0.0824074, -0.941921, 0, 0.996195, 0.0871557, 0.945519, 0.0283751, -0.324329, -198.055, 4.76, 36.91)
+current = true
+fov = 30.0
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 19.0
+offset_top = -574.0
+offset_right = 689.0
+offset_bottom = -62.0
+grow_vertical = 0
+size_flags_vertical = 8
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
+transparent_bg = true
+handle_input_locally = false
+render_target_update_mode = 4
+
+[node name="Menu" parent="SubViewportContainer/SubViewport" instance=ExtResource("7_oexl6")]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(241, 202)
+scale = Vector2(0.42, 0.42)
+texture = ExtResource("8_tegn7")

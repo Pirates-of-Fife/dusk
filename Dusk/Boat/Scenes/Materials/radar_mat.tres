@@ -1,0 +1,17 @@
+[gd_resource type="StandardMaterial3D" load_steps=6 format=3 uid="uid://ca0ms711kray3"]
+
+[ext_resource type="Texture2D" uid="uid://dicygeet555n0" path="res://Boat/GLB_Exports/Radar/textures/radar_mat_BaseColor.png" id="1_acsg8"]
+[ext_resource type="Texture2D" uid="uid://do6v3gvfo0idx" path="res://Boat/GLB_Exports/Radar/textures/radar_mat_Displacement.png" id="2_mf5a6"]
+[ext_resource type="Texture2D" uid="uid://bn0db6irffs3n" path="res://Boat/GLB_Exports/Radar/textures/radar_mat_Metallic.png" id="3_hv8gl"]
+[ext_resource type="Texture2D" uid="uid://d1xll2o3p7c3i" path="res://Boat/GLB_Exports/Radar/textures/radar_mat_Normal.png" id="4_ehswd"]
+[ext_resource type="Texture2D" uid="uid://c545ueqk0nj3" path="res://Boat/GLB_Exports/Radar/textures/radar_mat_Roughness.png" id="5_w53r3"]
+
+[resource]
+albedo_texture = ExtResource("1_acsg8")
+metallic = 1.0
+metallic_texture = ExtResource("3_hv8gl")
+roughness_texture = ExtResource("5_w53r3")
+normal_enabled = true
+normal_texture = ExtResource("4_ehswd")
+heightmap_enabled = true
+heightmap_texture = ExtResource("2_mf5a6")

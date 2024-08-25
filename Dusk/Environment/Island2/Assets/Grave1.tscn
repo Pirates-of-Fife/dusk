@@ -1,0 +1,67 @@
+[gd_scene load_steps=8 format=3 uid="uid://tqhrpajeyslo"]
+
+[ext_resource type="PackedScene" uid="uid://cxeaxxuvt34on" path="res://Environment/Island2/Assets/g1/GRAVE1.glb" id="1_jjcgd"]
+[ext_resource type="Script" path="res://Environment/Island2/Assets/Grave.gd" id="1_nmpxr"]
+[ext_resource type="PackedScene" uid="uid://bi8ebqsm3obsa" path="res://InteractableSystem/Interactable.tscn" id="2_exwon"]
+[ext_resource type="PackedScene" uid="uid://boorry5kus31v" path="res://InteractableSystem/TextDisplay.tscn" id="4_u4pa6"]
+[ext_resource type="PackedScene" uid="uid://3e1ledb5js4b" path="res://Environment/Island0/Terrain/IslandAssets/hut/hut_assets/Candle/Candle.tscn" id="5_qtmsi"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_axu1b"]
+size = Vector3(4.04944, 9.62998, 3.69492)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ij5e7"]
+size = Vector3(3.57544, 1.4675, 3)
+
+[node name="Grave" type="Node3D"]
+script = ExtResource("1_nmpxr")
+
+[node name="Mesh" parent="." instance=ExtResource("1_jjcgd")]
+transform = Transform3D(0.565, 0, 0, 0, 0.565, 0, 0, 0, 0.565, 0, 0, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Mesh"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Mesh/StaticBody3D"]
+transform = Transform3D(0.565, 0, 0, 0, 0.565, 0, 0, 0, 0.565, 0.0457624, 2.08866, -0.0236284)
+shape = SubResource("BoxShape3D_axu1b")
+
+[node name="Interactable" parent="." node_paths=PackedStringArray("interaction_shape") instance=ExtResource("2_exwon")]
+prompt_offset = 0.0
+interaction_shape = NodePath("CollisionShape3D")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Interactable"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.28772, 0.664764, 0)
+shape = SubResource("BoxShape3D_ij5e7")
+
+[node name="TextDisplay" parent="." instance=ExtResource("4_u4pa6")]
+time_per_character = 0.06
+
+[node name="Candle" parent="." instance=ExtResource("5_qtmsi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0220194, 0.605368, -0.318292)
+
+[node name="CandleFire" parent="Candle" index="3"]
+emitting = false
+
+[node name="AudioStreamPlayer3D" parent="Candle/CandleFire" index="0"]
+autoplay = false
+
+[node name="OmniLight3D2" parent="Candle/CandleFire" index="1"]
+visible = false
+
+[node name="Candle2" parent="." instance=ExtResource("5_qtmsi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0220194, 0.605368, 0.32904)
+
+[node name="CandleFire" parent="Candle2" index="3"]
+emitting = false
+
+[node name="AudioStreamPlayer3D" parent="Candle2/CandleFire" index="0"]
+autoplay = false
+
+[node name="OmniLight3D2" parent="Candle2/CandleFire" index="1"]
+visible = false
+
+[connection signal="interact" from="Interactable" to="." method="_on_interactable_interact"]
+
+[editable path="Candle"]
+[editable path="Candle/CandleFire"]
+[editable path="Candle2"]
+[editable path="Candle2/CandleFire"]

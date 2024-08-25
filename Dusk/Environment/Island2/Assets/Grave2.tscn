@@ -1,0 +1,48 @@
+[gd_scene load_steps=9 format=3 uid="uid://bwp8ghrphw8am"]
+
+[ext_resource type="PackedScene" uid="uid://cbaqqinsc7ke1" path="res://Environment/Island2/Assets/g2/GRAVE2.glb" id="1_d0gxi"]
+[ext_resource type="Script" path="res://Environment/Island2/Assets/Grave.gd" id="1_u2abl"]
+[ext_resource type="PackedScene" uid="uid://dgf7rfjo5by1o" path="res://Environment/Island2/Assets/shovel.tscn" id="2_iefm6"]
+[ext_resource type="PackedScene" uid="uid://bi8ebqsm3obsa" path="res://InteractableSystem/Interactable.tscn" id="4_vssk8"]
+[ext_resource type="PackedScene" uid="uid://boorry5kus31v" path="res://InteractableSystem/TextDisplay.tscn" id="5_nhccp"]
+[ext_resource type="PackedScene" uid="uid://3e1ledb5js4b" path="res://Environment/Island0/Terrain/IslandAssets/hut/hut_assets/Candle/Candle.tscn" id="6_pwjjl"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wh1h8"]
+size = Vector3(4.04944, 9.62998, 3.69492)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bhuaj"]
+size = Vector3(3.57544, 2, 3.18579)
+
+[node name="Grave2" type="Node3D"]
+script = ExtResource("1_u2abl")
+
+[node name="GRAVE2" parent="." instance=ExtResource("1_d0gxi")]
+transform = Transform3D(0.565, 0, 0, 0, 0.565, 0, 0, 0, 0.565, 0, 0, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="GRAVE2"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="GRAVE2/StaticBody3D"]
+transform = Transform3D(0.565, 0, 0, 0, 0.565, 0, 0, 0, 0.565, 0.0457624, 2.08866, -0.0236284)
+shape = SubResource("BoxShape3D_wh1h8")
+
+[node name="Shovel" parent="." instance=ExtResource("2_iefm6")]
+transform = Transform3D(0.566595, -0.273348, -0.777336, 0.344495, 0.935552, -0.0778838, 0.748528, -0.22366, 0.624246, 1.8004, -0.0688293, -0.0154651)
+
+[node name="Interactable" parent="." node_paths=PackedStringArray("interaction_shape") instance=ExtResource("4_vssk8")]
+prompt_offset = 0.0
+interaction_shape = NodePath("CollisionShape3D")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Interactable"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.28772, 0.5, 0.158813)
+shape = SubResource("BoxShape3D_bhuaj")
+
+[node name="TextDisplay" parent="." instance=ExtResource("5_nhccp")]
+time_per_character = 0.08
+
+[node name="Candle" parent="." instance=ExtResource("6_pwjjl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0220194, 0.605368, -0.318292)
+
+[node name="Candle2" parent="." instance=ExtResource("6_pwjjl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0220194, 0.605368, 0.32904)
+
+[connection signal="interact" from="Interactable" to="." method="_on_interactable_interact"]

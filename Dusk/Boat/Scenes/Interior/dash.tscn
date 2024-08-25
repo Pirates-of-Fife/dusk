@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://brg3plbnp78sg"]
+
+[ext_resource type="PackedScene" uid="uid://dqs17hwg3hicb" path="res://Boat/GLB_Exports/Interior/Dash/dash.glb" id="1_mxhuv"]
+[ext_resource type="Material" uid="uid://18r5w7g75uyo" path="res://Boat/Scenes/Materials/Interior Mats/dash_mat.tres" id="2_ggadb"]
+
+[node name="dash" instance=ExtResource("1_mxhuv")]
+
+[node name="Dash" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_ggadb")

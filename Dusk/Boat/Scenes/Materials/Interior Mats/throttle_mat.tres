@@ -1,0 +1,17 @@
+[gd_resource type="StandardMaterial3D" load_steps=6 format=3 uid="uid://cmepw11g6ryiq"]
+
+[ext_resource type="Texture2D" uid="uid://b6ojghwq2jpe6" path="res://Boat/GLB_Exports/Interior/Throttle/texture/Cabin_BaseColor.png" id="1_8u2in"]
+[ext_resource type="Texture2D" uid="uid://c1lre18tyio6w" path="res://Boat/GLB_Exports/Interior/Throttle/texture/Cabin_Displacement.png" id="2_ren8a"]
+[ext_resource type="Texture2D" uid="uid://ong2oykkfcqd" path="res://Boat/GLB_Exports/Interior/Throttle/texture/Cabin_Metallic.png" id="3_ofeb5"]
+[ext_resource type="Texture2D" uid="uid://cpa4mpfr6vtvd" path="res://Boat/GLB_Exports/Interior/Throttle/texture/Cabin_Normal.png" id="4_4g2jg"]
+[ext_resource type="Texture2D" uid="uid://droi3wjnsyg6q" path="res://Boat/GLB_Exports/Interior/Throttle/texture/Cabin_Roughness.png" id="5_ac4h7"]
+
+[resource]
+albedo_texture = ExtResource("1_8u2in")
+metallic = 1.0
+metallic_texture = ExtResource("3_ofeb5")
+roughness_texture = ExtResource("5_ac4h7")
+normal_enabled = true
+normal_texture = ExtResource("4_4g2jg")
+heightmap_enabled = true
+heightmap_texture = ExtResource("2_ren8a")

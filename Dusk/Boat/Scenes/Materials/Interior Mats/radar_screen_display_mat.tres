@@ -1,0 +1,20 @@
+[gd_resource type="StandardMaterial3D" load_steps=7 format=3 uid="uid://1kiowcm0jd36"]
+
+[ext_resource type="Texture2D" uid="uid://bvjumh4e3vp60" path="res://Boat/GLB_Exports/Interior/Radar_Screen/textures/radar_screen_display_mat_BaseColor.png" id="1_c8rfk"]
+[ext_resource type="Texture2D" uid="uid://dkhiuvki2hhul" path="res://Boat/GLB_Exports/Interior/Radar_Screen/textures/radar_screen_display_mat_Displacement.png" id="2_6tqmv"]
+[ext_resource type="Texture2D" uid="uid://bqhsk6vfiptki" path="res://Boat/GLB_Exports/Interior/Radar_Screen/textures/shattered-glass-texture.jpg" id="2_p4np5"]
+[ext_resource type="Texture2D" uid="uid://dn3lauipvvcql" path="res://Boat/GLB_Exports/Interior/Radar_Screen/textures/radar_screen_display_mat_Metallic.png" id="3_xicm8"]
+[ext_resource type="Texture2D" uid="uid://h6l3d0qu46uy" path="res://Boat/GLB_Exports/Interior/Radar_Screen/textures/radar_screen_display_mat_Normal.png" id="4_g3vpm"]
+[ext_resource type="Texture2D" uid="uid://0x3j1xaptlsg" path="res://Boat/GLB_Exports/Interior/Radar_Screen/textures/radar_screen_display_mat_Roughness.png" id="5_j1ajp"]
+
+[resource]
+albedo_texture = ExtResource("1_c8rfk")
+metallic = 1.0
+metallic_texture = ExtResource("3_xicm8")
+roughness_texture = ExtResource("5_j1ajp")
+normal_enabled = true
+normal_texture = ExtResource("4_g3vpm")
+heightmap_enabled = true
+heightmap_texture = ExtResource("2_6tqmv")
+refraction_scale = 0.14
+detail_albedo = ExtResource("2_p4np5")

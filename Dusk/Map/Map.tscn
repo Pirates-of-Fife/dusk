@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=3 uid="uid://c8wbssrt2ecno"]
+
+[ext_resource type="Script" path="res://Map/Map.gd" id="1_t2jho"]
+[ext_resource type="Texture2D" uid="uid://dcogs2fwisx48" path="res://Map/MapImageFiles/Map_Island_0.png" id="2_2pyk8"]
+[ext_resource type="Texture2D" uid="uid://ddd4l7qsrx4ko" path="res://Map/MapImageFiles/Map_Island_1.png" id="3_hyo6h"]
+[ext_resource type="Texture2D" uid="uid://boula563s6f0h" path="res://Map/MapImageFiles/Map_Island_2.png" id="4_yetcy"]
+[ext_resource type="Texture2D" uid="uid://2swkvl6komdo" path="res://Map/MapImageFiles/Map_Island_3.png" id="5_8gah0"]
+
+[node name="Map" type="Node3D"]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0)
+script = ExtResource("1_t2jho")
+
+[node name="MapPart0" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
+visible = false
+shaded = true
+texture_filter = 0
+texture = ExtResource("2_2pyk8")
+
+[node name="MapPart1" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
+visible = false
+shaded = true
+texture_filter = 0
+texture = ExtResource("3_hyo6h")
+
+[node name="MapPart2" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
+visible = false
+shaded = true
+texture_filter = 0
+texture = ExtResource("4_yetcy")
+
+[node name="MapPart3" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
+visible = false
+shaded = true
+texture_filter = 0
+texture = ExtResource("5_8gah0")

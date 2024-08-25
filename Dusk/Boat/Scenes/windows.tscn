@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://byrwviljgstg"]
+
+[ext_resource type="PackedScene" uid="uid://b4ob83f0saph" path="res://Boat/GLB_Exports/Windows/windows.glb" id="1_l7vyh"]
+[ext_resource type="Texture2D" uid="uid://liye5pa4qb1f" path="res://Boat/GLB_Exports/Windows/Textures/Scratches-Textures.jpg" id="2_0m8j6"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_piqcr"]
+render_priority = 1
+transparency = 1
+albedo_color = Color(1, 1, 1, 0.141176)
+albedo_texture = ExtResource("2_0m8j6")
+roughness = 0.1
+
+[node name="windows" instance=ExtResource("1_l7vyh")]
+
+[node name="CabinWindows" parent="." index="0"]
+transform = Transform3D(1.78814e-07, 0, 1, 0, 1, 0, -1, 0, 1.78814e-07, 10.7414, 4.14303, 4.09007)
+surface_material_override/0 = SubResource("StandardMaterial3D_piqcr")

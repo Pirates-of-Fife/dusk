@@ -1,0 +1,60 @@
+[gd_scene load_steps=9 format=3 uid="uid://wg7iy2tsusqi"]
+
+[ext_resource type="PackedScene" uid="uid://dt1pn72f65flf" path="res://Boat/GLB_Exports/Interior/Button/button.glb" id="1_dd0kb"]
+[ext_resource type="Material" uid="uid://chnqeuiyuobfh" path="res://Boat/Scenes/Materials/Interior Mats/button_mat.tres" id="2_2atv7"]
+[ext_resource type="Script" path="res://Boat/Scenes/Interior/ButtonAnimation.gd" id="2_ym1tu"]
+[ext_resource type="PackedScene" uid="uid://bi8ebqsm3obsa" path="res://InteractableSystem/Interactable.tscn" id="4_xracb"]
+[ext_resource type="AudioStream" uid="uid://c1exghq2rj1kh" path="res://Sound/Props/Button/button_click.wav" id="5_kf118"]
+
+[sub_resource type="Animation" id="Animation_5ba7o"]
+resource_name = "button_press"
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ButtonBase_001/Button_002")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 0.0407057, 0, 0.4, 1, 0, 0.0161238, 0, 1, 1, 0, 0.041, 0)
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4l4rl"]
+_data = {
+"button_press": SubResource("Animation_5ba7o")
+}
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_hj7is"]
+size = Vector3(0.555095, 0.208862, 0.552348)
+
+[node name="button" instance=ExtResource("1_dd0kb")]
+script = ExtResource("2_ym1tu")
+
+[node name="ButtonBase_001" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+surface_material_override/0 = ExtResource("2_2atv7")
+
+[node name="Button_002" parent="ButtonBase_001" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0407057, 0)
+surface_material_override/0 = ExtResource("2_2atv7")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="1"]
+libraries = {
+"": SubResource("AnimationLibrary_4l4rl")
+}
+speed_scale = 5.0
+
+[node name="Interactable" parent="." index="2" node_paths=PackedStringArray("interaction_shape") instance=ExtResource("4_xracb")]
+ship_scale = true
+prompt_offset = 0.05
+prompt_linger_time = 0.2
+interaction_shape = NodePath("CollisionShape3D")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Interactable" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00613704, 0.0863647, -0.00834456)
+shape = SubResource("BoxShape3D_hj7is")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." index="3"]
+stream = ExtResource("5_kf118")
+volume_db = -36.0
+pitch_scale = 0.86
+bus = &"Environment"
+
+[connection signal="interact" from="Interactable" to="." method="_on_interactable_interact"]

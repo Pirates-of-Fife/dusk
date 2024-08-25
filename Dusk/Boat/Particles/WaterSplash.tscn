@@ -1,0 +1,64 @@
+[gd_scene load_steps=11 format=3 uid="uid://bhxl7jmly4kri"]
+
+[ext_resource type="QuadMesh" uid="uid://ytp5iphq5dhb" path="res://Boat/Particles/WaterSplashDrawPass.tres" id="1_yd7gh"]
+[ext_resource type="Script" path="res://Boat/Particles/WaterSplash.gd" id="2_7c20y"]
+[ext_resource type="AudioStream" uid="uid://cmky0oe6aljkf" path="res://Boat/Particles/splash.wav" id="3_6it1w"]
+
+[sub_resource type="Curve" id="Curve_woqcp"]
+_data = [Vector2(0, 0.1875), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_x40y3"]
+curve = SubResource("Curve_woqcp")
+
+[sub_resource type="Gradient" id="Gradient_0mgkv"]
+colors = PackedColorArray(0, 0.54451, 0.843639, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_qcvmu"]
+gradient = SubResource("Gradient_0mgkv")
+
+[sub_resource type="Curve" id="Curve_h28yh"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.131737, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_qtsfc"]
+curve = SubResource("Curve_h28yh")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_bfv2w"]
+angle_min = -90.0
+angle_max = 90.0
+inherit_velocity_ratio = 0.099
+direction = Vector3(0, 1, 0)
+spread = 30.0
+initial_velocity_min = 2.0
+initial_velocity_max = 15.0
+scale_min = 0.05
+scale_max = 0.2
+scale_curve = SubResource("CurveTexture_qtsfc")
+color_ramp = SubResource("GradientTexture1D_qcvmu")
+alpha_curve = SubResource("CurveTexture_x40y3")
+collision_mode = 1
+collision_friction = 0.0
+collision_bounce = 0.0
+
+[node name="WaterSplash" type="GPUParticles3D"]
+emitting = false
+amount = 300
+lifetime = 4.0
+one_shot = true
+explosiveness = 1.0
+randomness = 0.8
+visibility_aabb = AABB(-10, -10, -10, 20, 20, 20)
+local_coords = true
+process_material = SubResource("ParticleProcessMaterial_bfv2w")
+draw_pass_1 = ExtResource("1_yd7gh")
+script = ExtResource("2_7c20y")
+min_dB = -30.0
+max_dB = -15.0
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("3_6it1w")
+volume_db = -15.0
+bus = &"Environment"
+
+[connection signal="finished" from="." to="." method="_on_finished"]

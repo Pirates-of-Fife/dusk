@@ -1,0 +1,18 @@
+[gd_resource type="StandardMaterial3D" load_steps=6 format=3 uid="uid://defk6a46kh846"]
+
+[ext_resource type="Texture2D" uid="uid://x263yfl84hlr" path="res://Boat/GLB_Exports/Guardrail/textures/guard_rail_handle_mat_BaseColor.png" id="1_cxe5w"]
+[ext_resource type="Texture2D" uid="uid://du3tgjaao4uoi" path="res://Boat/GLB_Exports/Guardrail/textures/guard_rail_handle_mat_Displacement.png" id="2_85vej"]
+[ext_resource type="Texture2D" uid="uid://8slawkycjmby" path="res://Boat/GLB_Exports/Guardrail/textures/guard_rail_handle_mat_Metallic.png" id="3_6q43q"]
+[ext_resource type="Texture2D" uid="uid://b3kwauupjxwg0" path="res://Boat/GLB_Exports/Guardrail/textures/guard_rail_handle_mat_Normal.png" id="4_vcq6g"]
+[ext_resource type="Texture2D" uid="uid://pocxya4xyal5" path="res://Boat/GLB_Exports/Guardrail/textures/guard_rail_handle_mat_Roughness.png" id="5_cykju"]
+
+[resource]
+cull_mode = 2
+albedo_texture = ExtResource("1_cxe5w")
+metallic = 1.0
+metallic_texture = ExtResource("3_6q43q")
+roughness_texture = ExtResource("5_cykju")
+normal_enabled = true
+normal_texture = ExtResource("4_vcq6g")
+heightmap_enabled = true
+heightmap_texture = ExtResource("2_85vej")

@@ -1,0 +1,15 @@
+[gd_resource type="StandardMaterial3D" load_steps=5 format=3 uid="uid://cyg2cjmg1j7ch"]
+
+[ext_resource type="Texture2D" uid="uid://b10vmk7ruwjou" path="res://Boat/GLB_Exports/Cabin/Textures/Cabin_Mat_BaseColor.png" id="1_6caqf"]
+[ext_resource type="Texture2D" uid="uid://dv6qxu1gqpaax" path="res://Boat/GLB_Exports/Cabin/Textures/Cabin_Mat_Metallic.png" id="2_d1rr0"]
+[ext_resource type="Texture2D" uid="uid://2wdi0hgaqvoe" path="res://Boat/GLB_Exports/Cabin/Textures/Cabin_Mat_Normal.png" id="3_rgvd4"]
+[ext_resource type="Texture2D" uid="uid://u6qlnj7b8nb0" path="res://Boat/GLB_Exports/Cabin/Textures/Cabin_Mat_Roughness.png" id="4_eb5tp"]
+
+[resource]
+cull_mode = 2
+albedo_texture = ExtResource("1_6caqf")
+metallic = 1.0
+metallic_texture = ExtResource("2_d1rr0")
+roughness_texture = ExtResource("4_eb5tp")
+normal_enabled = true
+normal_texture = ExtResource("3_rgvd4")

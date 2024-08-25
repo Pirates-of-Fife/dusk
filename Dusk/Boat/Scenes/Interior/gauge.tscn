@@ -1,0 +1,16 @@
+[gd_scene load_steps=5 format=3 uid="uid://cg5uc6505dq5i"]
+
+[ext_resource type="PackedScene" uid="uid://dxbeytqcu8pvh" path="res://Boat/GLB_Exports/Interior/Gauge/gauge.glb" id="1_yc7u6"]
+[ext_resource type="Script" path="res://Boat/InteractiveScenes/Animations/GaugeAnimation.gd" id="2_pd1ia"]
+[ext_resource type="Material" uid="uid://48rbldf1g65v" path="res://Boat/Scenes/Materials/Interior Mats/gauge_mat.tres" id="2_pucub"]
+[ext_resource type="Material" uid="uid://dktg2u8my86a5" path="res://Boat/Scenes/Materials/Interior Mats/pointer_mat.tres" id="3_pinch"]
+
+[node name="gauge" instance=ExtResource("1_yc7u6")]
+script = ExtResource("2_pd1ia")
+
+[node name="Gauge" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+surface_material_override/0 = ExtResource("2_pucub")
+
+[node name="GaugePointer" parent="Gauge" index="0"]
+surface_material_override/0 = ExtResource("3_pinch")

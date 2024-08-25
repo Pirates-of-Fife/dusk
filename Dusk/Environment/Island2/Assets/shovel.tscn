@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://dgf7rfjo5by1o"]
+
+[ext_resource type="PackedScene" uid="uid://hxblya87yx26" path="res://Environment/Island2/Assets/other/low_poly_shovel.glb" id="1_1bmfo"]
+
+[node name="Shovel" type="Node3D"]
+
+[node name="Sketchfab_Scene" parent="." instance=ExtResource("1_1bmfo")]

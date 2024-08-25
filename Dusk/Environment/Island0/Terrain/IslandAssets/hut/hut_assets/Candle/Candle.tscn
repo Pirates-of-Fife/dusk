@@ -1,0 +1,50 @@
+[gd_scene load_steps=9 format=3 uid="uid://3e1ledb5js4b"]
+
+[ext_resource type="Material" uid="uid://cm61b4fj653v4" path="res://Boat/Scenes/Materials/metal_mat.tres" id="1_64ees"]
+[ext_resource type="Texture2D" uid="uid://dnci1us507je6" path="res://Boat/GLB_Exports/Door/textures/metal_parts/Metal_Mat_Normal.png" id="2_0qrqn"]
+[ext_resource type="PackedScene" uid="uid://cd33tfgd2jvdr" path="res://misc/CandleFire.tscn" id="3_wwogi"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_xlgx8"]
+top_radius = 0.09
+bottom_radius = 0.1
+height = 0.01
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5ydge"]
+albedo_color = Color(0.735356, 0.713126, 0.580879, 1)
+metallic_specular = 0.0
+normal_enabled = true
+normal_scale = 0.2
+normal_texture = ExtResource("2_0qrqn")
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_27rsg"]
+material = SubResource("StandardMaterial3D_5ydge")
+top_radius = 0.02
+bottom_radius = 0.02
+height = 0.15
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h8gdp"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_ubee1"]
+material = SubResource("StandardMaterial3D_h8gdp")
+top_radius = 0.005
+bottom_radius = 0.005
+height = 0.02
+
+[node name="Candle" type="Node3D"]
+
+[node name="Bottom" type="MeshInstance3D" parent="."]
+mesh = SubResource("CylinderMesh_xlgx8")
+surface_material_override/0 = ExtResource("1_64ees")
+
+[node name="Candle" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.082985, 0)
+mesh = SubResource("CylinderMesh_27rsg")
+skeleton = NodePath("../Bottom")
+
+[node name="Thread" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.157489, 0)
+mesh = SubResource("CylinderMesh_ubee1")
+
+[node name="CandleFire" parent="." instance=ExtResource("3_wwogi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.162027, 0)

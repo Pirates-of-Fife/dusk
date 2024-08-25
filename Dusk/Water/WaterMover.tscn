@@ -1,0 +1,28 @@
+[gd_scene load_steps=6 format=3 uid="uid://bapmikalcjl6e"]
+
+[ext_resource type="Script" path="res://Water/WaterMover.gd" id="1_2om4x"]
+[ext_resource type="Material" uid="uid://bwratgro0x321" path="res://Water/water_mat.tres" id="2_71ivg"]
+[ext_resource type="Script" path="res://Water/Water.gd" id="3_ddd8y"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_m4jwx"]
+material = ExtResource("2_71ivg")
+size = Vector2(100, 100)
+
+[sub_resource type="FogMaterial" id="FogMaterial_o3h50"]
+density = 10.0
+albedo = Color(0.299349, 0.644804, 1, 1)
+height_falloff = 2.46228e-05
+edge_fade = 1e-05
+
+[node name="WaterMover" type="Node3D"]
+script = ExtResource("1_2om4x")
+
+[node name="Water" type="MeshInstance3D" parent="."]
+mesh = SubResource("PlaneMesh_m4jwx")
+surface_material_override/0 = ExtResource("2_71ivg")
+script = ExtResource("3_ddd8y")
+
+[node name="FogVolume" type="FogVolume" parent="Water"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.18837, -25, -0.0579529)
+size = Vector3(100, 50, 100)
+material = SubResource("FogMaterial_o3h50")

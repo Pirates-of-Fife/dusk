@@ -1,0 +1,13 @@
+[gd_resource type="StandardMaterial3D" load_steps=4 format=3 uid="uid://cjpccyqdrwlps"]
+
+[ext_resource type="Texture2D" uid="uid://bju0js7nje2ml" path="res://Environment/Island3/Terrain/IslandAssets/bunker/bunker_assets/Textures/Material.002_BaseColor.png" id="1_y3di3"]
+[ext_resource type="Texture2D" uid="uid://chk7vj0mh7cjf" path="res://Environment/Island3/Terrain/IslandAssets/bunker/bunker_assets/Textures/Material.002_Metallic.png" id="2_vvvwu"]
+[ext_resource type="Texture2D" uid="uid://crc6rcyoth12a" path="res://Environment/Island3/Terrain/IslandAssets/bunker/bunker_assets/Textures/Material.002_Roughness.png" id="3_lh378"]
+
+[resource]
+albedo_texture = ExtResource("1_y3di3")
+metallic = 1.0
+metallic_texture = ExtResource("2_vvvwu")
+roughness_texture = ExtResource("3_lh378")
+normal_enabled = true
+rim_enabled = true

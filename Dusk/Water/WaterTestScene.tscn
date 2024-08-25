@@ -1,0 +1,78 @@
+[gd_scene load_steps=14 format=3 uid="uid://62fvwrc7sch3"]
+
+[ext_resource type="Environment" uid="uid://cv0fxqar3taw4" path="res://Environment/DuskWorldEnvironment.tres" id="2_rpt8l"]
+[ext_resource type="PackedScene" uid="uid://bmacr6agbv47a" path="res://Boat/Boat/Boat.tscn" id="3_a8to5"]
+[ext_resource type="PackedScene" uid="uid://brh07riyg1qv0" path="res://FirstPersonController/Player.tscn" id="5_mgs2n"]
+[ext_resource type="PackedScene" uid="uid://bm5mnh8u6adjg" path="res://Environment/Shared/island_sound_controller.tscn" id="7_hjqpy"]
+[ext_resource type="PackedScene" uid="uid://cbgia5gdnq22d" path="res://Environment/Island3/Terrain/Island3_Terrain.tscn" id="8_n0mbs"]
+[ext_resource type="PackedScene" uid="uid://b4dijxrpph0p" path="res://Environment/Island2/Terrain/Island2_Terrain.tscn" id="9_3wfv1"]
+[ext_resource type="PackedScene" uid="uid://b047wo4ee5aku" path="res://Sound/Ambience/AmbientSound.tscn" id="9_xr6qc"]
+[ext_resource type="PackedScene" uid="uid://dy6d3lmebk50q" path="res://Environment/Island1/Terrain/Island1_Terrain.tscn" id="10_fr7d5"]
+[ext_resource type="PackedScene" uid="uid://cw18h75nlrojg" path="res://Map/MapPart.tscn" id="10_wp4xr"]
+[ext_resource type="PackedScene" uid="uid://b4wyblhah757a" path="res://Environment/Island0/Terrain/Island0_Terrain.tscn" id="11_rfkxl"]
+[ext_resource type="Script" path="res://Game Manager/GameManager.gd" id="11_x5f7t"]
+[ext_resource type="PackedScene" uid="uid://bapmikalcjl6e" path="res://Water/WaterMover.tscn" id="14_vtpca"]
+
+[sub_resource type="CameraAttributesPhysical" id="CameraAttributesPhysical_rdlc4"]
+
+[node name="WaterTestScene" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0298843, 0, -0.00428009)
+
+[node name="Boat" parent="." instance=ExtResource("3_a8to5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -140.311, 2.08124, 12.5798)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource("2_rpt8l")
+camera_attributes = SubResource("CameraAttributesPhysical_rdlc4")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.345495, -0.93833, 0.0130532, 0, 0.0139098, 0.999903, -0.938421, 0.345461, -0.00480576, 523.629, 8.89441, -269.865)
+light_color = Color(0.980392, 0.941176, 1, 1)
+light_energy = 0.05
+shadow_enabled = true
+shadow_bias = 0.5
+
+[node name="Player" parent="." instance=ExtResource("5_mgs2n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -143.008, 7.25478, 11.4782)
+
+[node name="AmbientSound" parent="." instance=ExtResource("9_xr6qc")]
+max_distance = 80.0
+
+[node name="Island1Terrain" parent="." instance=ExtResource("10_fr7d5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 197.786, -0.929579, 5.64509)
+
+[node name="Island0Terrain" parent="." instance=ExtResource("11_rfkxl")]
+transform = Transform3D(0.789234, 0, 0.614092, 0, 1, 0, -0.614092, 0, 0.789234, -209.03, -2.30322, -18.9957)
+
+[node name="WaterMover" parent="." instance=ExtResource("14_vtpca")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -143.052, 0, 0)
+
+[node name="IslandSoundController" parent="." instance=ExtResource("7_hjqpy")]
+transform = Transform3D(0.996488, 0, 0.08373, 0, 1, 0, -0.08373, 0, 0.996488, -40.027, 19.0991, -30.5892)
+island_2_min_distance = 10.0
+island_2_max_distance = 20.0
+island_3_min_distance = 10.0
+island_3_max_distance = 20.0
+
+[node name="Island3Terrain" parent="." instance=ExtResource("8_n0mbs")]
+transform = Transform3D(-0.69388, 0, -0.720091, 0, 1, 0, 0.720091, 0, -0.69388, 4.85693, 4.98232, 234.866)
+
+[node name="Island2Terrain" parent="." instance=ExtResource("9_3wfv1")]
+transform = Transform3D(0.536578, 0, -0.843851, 0, 1, 0, 0.843851, 0, 0.536578, 10.3555, -13.8799, -160.275)
+
+[node name="MapPart" parent="." instance=ExtResource("10_wp4xr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -147.301, 2.16597, 22.8236)
+
+[node name="MapPart2" parent="." instance=ExtResource("10_wp4xr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -147.301, 2.16597, 21.4835)
+
+[node name="MapPart3" parent="." instance=ExtResource("10_wp4xr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -148.665, 2.16597, 22.8236)
+
+[node name="MapPart4" parent="." instance=ExtResource("10_wp4xr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -145.193, 2.16597, 21.1117)
+
+[node name="GameManager" type="Node3D" parent="." node_paths=PackedStringArray("player", "boat")]
+script = ExtResource("11_x5f7t")
+player = NodePath("../Player")
+boat = NodePath("../Boat")

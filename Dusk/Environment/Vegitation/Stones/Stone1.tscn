@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://bc0kyhd8grcaj"]
+
+[ext_resource type="PackedScene" uid="uid://7n4ufbndfyd2" path="res://Environment/Vegitation/Stones/StoneAssets/s__rock_01_lowpoly.glb" id="1_qym28"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_p7vs1"]
+size = Vector3(3.40027, 5.85962, 5.27533)
+
+[node name="Stone1" type="Node3D"]
+
+[node name="Sketchfab_Scene" parent="." instance=ExtResource("1_qym28")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Sketchfab_Scene"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Sketchfab_Scene/StaticBody3D"]
+transform = Transform3D(0.299, 0, 0, 0, 0.299, 0, 0, 0, 0.299, 0.00359516, 0.237709, -0.0151371)
+shape = SubResource("BoxShape3D_p7vs1")

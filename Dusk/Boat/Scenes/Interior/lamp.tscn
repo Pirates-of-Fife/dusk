@@ -1,0 +1,15 @@
+[gd_scene load_steps=5 format=3 uid="uid://chcu3k4lk1d5i"]
+
+[ext_resource type="PackedScene" uid="uid://cfl43kidjky6n" path="res://Boat/GLB_Exports/Interior/Lamp/lamp.glb" id="1_ty7yg"]
+[ext_resource type="Script" path="res://Boat/Scenes/Interior/lamp.gd" id="2_ekcfl"]
+[ext_resource type="Material" uid="uid://dsjd2x6oa6buw" path="res://Boat/Scenes/Materials/Interior Mats/lamp_metal_mat.tres" id="3_fficd"]
+[ext_resource type="Material" uid="uid://buquvni6xftjo" path="res://Boat/Scenes/Materials/Interior Mats/lamp_off2_mat.tres" id="3_xospm"]
+
+[node name="lamp" instance=ExtResource("1_ty7yg")]
+script = ExtResource("2_ekcfl")
+
+[node name="Lamp" parent="." index="0"]
+surface_material_override/0 = ExtResource("3_xospm")
+
+[node name="LampCage" parent="Lamp" index="0"]
+surface_material_override/0 = ExtResource("3_fficd")

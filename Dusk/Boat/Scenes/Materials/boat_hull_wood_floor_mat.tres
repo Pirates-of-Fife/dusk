@@ -1,0 +1,14 @@
+[gd_resource type="StandardMaterial3D" load_steps=5 format=3 uid="uid://duxnaa464fqg5"]
+
+[ext_resource type="Texture2D" uid="uid://mwpn2h6wkw81" path="res://GLB_Exports/Boat_Hull/Textures/Wood_Mat_BaseColor.png" id="1_qq53m"]
+[ext_resource type="Texture2D" uid="uid://boad88e7vxqgt" path="res://GLB_Exports/Boat_Hull/Textures/Wood_Mat_Metallic.png" id="2_uijon"]
+[ext_resource type="Texture2D" uid="uid://cd5uk58014l70" path="res://GLB_Exports/Boat_Hull/Textures/Wood_Mat_Normal.png" id="3_8rnma"]
+[ext_resource type="Texture2D" uid="uid://bt67heh4mbert" path="res://GLB_Exports/Boat_Hull/Textures/Wood_Mat_Roughness.png" id="4_ag7av"]
+
+[resource]
+albedo_texture = ExtResource("1_qq53m")
+metallic = 1.0
+metallic_texture = ExtResource("2_uijon")
+roughness_texture = ExtResource("4_ag7av")
+normal_enabled = true
+normal_texture = ExtResource("3_8rnma")

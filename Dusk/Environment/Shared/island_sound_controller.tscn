@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://bm5mnh8u6adjg"]
+
+[ext_resource type="Script" path="res://Environment/Shared/IslandSoundController.gd" id="1_4vio8"]
+
+[node name="IslandSoundController" type="Node3D"]
+script = ExtResource("1_4vio8")
+island_0_min_distance = 60.0
+island_0_max_distance = 80.0
+island_1_min_distance = 15.0
+island_1_max_distance = 60.0
+island_2_min_distance = 50.0
+island_2_max_distance = 65.0
+island_3_min_distance = 70.0
+island_3_max_distance = 160.0

@@ -1,0 +1,38 @@
+[remap]
+
+importer="texture"
+type="CompressedTexture2D"
+uid="uid://ddil400d6tc12"
+path.s3tc="res://.godot/imported/insel3_Ground.png-2a0b1d272a4d22726a4cbd85f668d557.s3tc.ctex"
+metadata={
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
+}
+generator_parameters={
+"md5": "01f38ffb6c41994f087cf4e1b16e094e"
+}
+
+[deps]
+
+source_file="res://Environment/Island3/Terrain/IslandAssets/insel3_Ground.png"
+dest_files=["res://.godot/imported/insel3_Ground.png-2a0b1d272a4d22726a4cbd85f668d557.s3tc.ctex"]
+
+[params]
+
+compress/mode=2
+compress/high_quality=false
+compress/lossy_quality=0.7
+compress/hdr_compression=1
+compress/normal_map=0
+compress/channel_pack=0
+mipmaps/generate=true
+mipmaps/limit=-1
+roughness/mode=0
+roughness/src_normal=""
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/normal_map_invert_y=false
+process/hdr_as_srgb=false
+process/hdr_clamp_exposure=false
+process/size_limit=0
+detect_3d/compress_to=0

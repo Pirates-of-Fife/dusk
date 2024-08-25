@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=3 uid="uid://gm6l4imxfwt"]
+
+[ext_resource type="Script" path="res://Environment/Island1/Barrel/Barrel.gd" id="1_8pu7u"]
+[ext_resource type="PackedScene" uid="uid://5u5vy8q4rqnt" path="res://Environment/Island1/Barrel/Barrel.glb" id="1_dulsw"]
+[ext_resource type="PackedScene" uid="uid://3e1ledb5js4b" path="res://Environment/Island0/Terrain/IslandAssets/hut/hut_assets/Candle/Candle.tscn" id="3_4yol7"]
+[ext_resource type="PackedScene" uid="uid://cw18h75nlrojg" path="res://Map/MapPart.tscn" id="4_rdq62"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_bwibr"]
+points = PackedVector3Array(-0.04961, -0.463288, -0.494671, 0.0348992, 0.446026, 0.499454, 0.0768878, 0.675224, 0.475016, -0.472753, 0.676752, -0.158282, 0.457532, 0.676516, -0.179235, 0.0768878, -0.675224, 0.475016, -0.472389, -0.676235, 0.158783, 0.457181, -0.675994, 0.179719, 0.30664, -0.670074, -0.386961, -0.00745677, 0.677975, -0.497577, -0.303398, 0.676553, 0.391425, -0.303632, -0.677071, -0.391102, 0.306406, 0.669556, 0.387284, -0.262507, -0.680113, 0.414701, 0.484294, -0.470411, -0.159971, 0.483872, 0.448714, 0.160453, -0.302255, 0.442316, -0.410373, -0.472753, -0.676752, -0.158282, 0.291381, 0.448555, -0.416067, -0.472389, 0.676235, 0.158783, 0.29103, -0.469259, 0.416181, 0.0135923, -0.67526, -0.495583, -0.049546, -0.462726, 0.494692, -0.302026, 0.441985, 0.410687, -0.262837, 0.680958, -0.414593, 0.457532, -0.676516, -0.179235, 0.457181, 0.675994, 0.179719, 0.268002, 0.678364, -0.412915, 0.484294, 0.449108, -0.159971, 0.483872, -0.469999, 0.160453, -0.302026, -0.46295, 0.410687, -0.0710071, 0.677942, 0.476927)
+
+[node name="Barrel" type="RigidBody3D"]
+script = ExtResource("1_8pu7u")
+float_force = 2.0
+
+[node name="Barrel" parent="." instance=ExtResource("1_dulsw")]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, 0, 0)
+shape = SubResource("ConvexPolygonShape3D_bwibr")
+
+[node name="BuyoancyProbes" type="Node3D" parent="."]
+
+[node name="Marker3D" type="Marker3D" parent="BuyoancyProbes"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.451031, 0)
+
+[node name="Candle" parent="." instance=ExtResource("3_4yol7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.116195, 0.403206, -0.0140821)
+
+[node name="MapPart" parent="." instance=ExtResource("4_rdq62")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.101037, 0.405964, -0.0146819)
+
+[node name="MapPart0" parent="MapPart" index="2"]
+visible = false
+
+[node name="MapPart2" parent="MapPart" index="4"]
+visible = true
+
+[editable path="MapPart"]

@@ -1,0 +1,17 @@
+[gd_resource type="StandardMaterial3D" load_steps=6 format=3 uid="uid://cm61b4fj653v4"]
+
+[ext_resource type="Texture2D" uid="uid://dntrqhv0eh3td" path="res://GLB_Exports/Propeller_Rudder/Textures/Metal_Mat_BaseColor.png" id="1_twxce"]
+[ext_resource type="Texture2D" uid="uid://c6lmgjls87xv8" path="res://GLB_Exports/Propeller_Rudder/Textures/Metal_Mat_Displacement.png" id="2_586gs"]
+[ext_resource type="Texture2D" uid="uid://dejkiabswfw6x" path="res://GLB_Exports/Propeller_Rudder/Textures/Metal_Mat_Metallic.png" id="3_adjcr"]
+[ext_resource type="Texture2D" uid="uid://jpnbi7njsf6q" path="res://GLB_Exports/Propeller_Rudder/Textures/Metal_Mat_Normal.png" id="4_sesvd"]
+[ext_resource type="Texture2D" uid="uid://c1phqasaiufn" path="res://GLB_Exports/Propeller_Rudder/Textures/Metal_Mat_Roughness.png" id="5_ri7gh"]
+
+[resource]
+albedo_texture = ExtResource("1_twxce")
+metallic = 1.0
+metallic_texture = ExtResource("3_adjcr")
+roughness_texture = ExtResource("5_ri7gh")
+normal_enabled = true
+normal_texture = ExtResource("4_sesvd")
+heightmap_scale = 6.438
+heightmap_texture = ExtResource("2_586gs")

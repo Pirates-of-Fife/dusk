@@ -1,0 +1,17 @@
+[gd_resource type="StandardMaterial3D" load_steps=6 format=3 uid="uid://y7nskv64io8j"]
+
+[ext_resource type="Texture2D" uid="uid://dfgkb2upgxcs6" path="res://Boat/GLB_Exports/Door/textures/metal_parts/Metal_Mat_BaseColor.png" id="1_nvbtc"]
+[ext_resource type="Texture2D" uid="uid://hpbd36s5i14j" path="res://Boat/GLB_Exports/Door/textures/metal_parts/Metal_Mat_Displacement.png" id="2_430yy"]
+[ext_resource type="Texture2D" uid="uid://doerbd42a5e1j" path="res://Boat/GLB_Exports/Door/textures/metal_parts/Metal_Mat_Metallic.png" id="3_03agm"]
+[ext_resource type="Texture2D" uid="uid://dnci1us507je6" path="res://Boat/GLB_Exports/Door/textures/metal_parts/Metal_Mat_Normal.png" id="4_xjwpg"]
+[ext_resource type="Texture2D" uid="uid://ccuo5snlej01o" path="res://Boat/GLB_Exports/Door/textures/metal_parts/Metal_Mat_Roughness.png" id="5_ebrne"]
+
+[resource]
+albedo_texture = ExtResource("1_nvbtc")
+metallic = 1.0
+metallic_texture = ExtResource("3_03agm")
+roughness_texture = ExtResource("5_ebrne")
+normal_enabled = true
+normal_texture = ExtResource("4_xjwpg")
+heightmap_enabled = true
+heightmap_texture = ExtResource("2_430yy")

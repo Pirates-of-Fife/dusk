@@ -1,0 +1,29 @@
+[gd_scene load_steps=6 format=3 uid="uid://dqwrumpc0eg80"]
+
+[ext_resource type="PackedScene" uid="uid://bkglkwj88tob8" path="res://Environment/Island0/Terrain/IslandAssets/hut/hut_assets/Note/Note.glb" id="1_kb4uf"]
+[ext_resource type="Script" path="res://Environment/Island0/Terrain/IslandAssets/hut/hut_assets/Note/Note.gd" id="2_4b754"]
+[ext_resource type="PackedScene" uid="uid://bi8ebqsm3obsa" path="res://InteractableSystem/Interactable.tscn" id="3_4ptx0"]
+[ext_resource type="PackedScene" uid="uid://boorry5kus31v" path="res://InteractableSystem/TextDisplay.tscn" id="4_vxyle"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_q0h6n"]
+size = Vector3(0.194946, 0.635254, 0.409424)
+
+[node name="Note" instance=ExtResource("1_kb4uf")]
+script = ExtResource("2_4b754")
+note_text = "[s]Martin Pem[/s], > [s]Livia Gex[/s], >> . >> . > Mira Dajin >> fuck."
+
+[node name="Plane" parent="." index="0"]
+transform = Transform3D(-1.18021e-08, 0.422, 0, -0.27, -1.84462e-08, 0, 0, 0, 0.173, 0, 0, 0)
+
+[node name="Interactable" parent="." index="1" node_paths=PackedStringArray("interaction_shape") instance=ExtResource("3_4ptx0")]
+prompt_offset = 0.0
+prompt_linger_time = 0.8
+interaction_shape = NodePath("CollisionShape3D")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Interactable" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00897217, 0.0146484, 0.0125732)
+shape = SubResource("BoxShape3D_q0h6n")
+
+[node name="TextDisplay" parent="." index="2" instance=ExtResource("4_vxyle")]
+
+[connection signal="interact" from="Interactable" to="." method="_on_interactable_interact"]

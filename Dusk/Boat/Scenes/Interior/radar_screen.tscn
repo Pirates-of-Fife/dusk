@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://b2o8owd406khv"]
+
+[ext_resource type="PackedScene" uid="uid://ccpvn4orqqtio" path="res://Boat/GLB_Exports/Interior/Radar_Screen/radar_screen.glb" id="1_gjri6"]
+[ext_resource type="Script" path="res://Boat/Scenes/Interior/radar_screen.gd" id="2_0yb17"]
+[ext_resource type="Material" uid="uid://b0kwhyn08i2oo" path="res://Boat/Scenes/Materials/Interior Mats/radar_screen_mat.tres" id="2_jmuej"]
+[ext_resource type="Material" uid="uid://1kiowcm0jd36" path="res://Boat/Scenes/Materials/Interior Mats/radar_screen_display_mat.tres" id="3_c84k5"]
+
+[node name="radar_screen" instance=ExtResource("1_gjri6")]
+script = ExtResource("2_0yb17")
+
+[node name="RadarScreen" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_jmuej")
+surface_material_override/1 = ExtResource("3_c84k5")
+
+[node name="LabelX" type="Label3D" parent="RadarScreen" index="0"]
+transform = Transform3D(-2.65292e-08, -0.999577, 0.0290906, -3.47402e-08, 0.0290907, 0.999578, -1, 2.55074e-08, -3.54973e-08, -0.119974, 0.0123177, 0)
+pixel_size = 0.0035
+modulate = Color(0.854493, 0.13579, 0, 1)
+outline_modulate = Color(0, 0, 0, 0)
+text = "X: 534"
+
+[node name="LabelY" type="Label3D" parent="RadarScreen" index="1"]
+transform = Transform3D(-2.65292e-08, -0.999577, 0.0290905, -3.47402e-08, 0.0290907, 0.999578, -1, 2.55074e-08, -3.54973e-08, 0.0635343, 0.00328922, 0)
+pixel_size = 0.0035
+modulate = Color(0.854493, 0.13579, 0, 1)
+outline_modulate = Color(0, 0, 0, 0)
+text = "Y: 534"

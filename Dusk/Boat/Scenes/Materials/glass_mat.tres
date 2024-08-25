@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://cumyd1eymbym"]
+
+[ext_resource type="Texture2D" uid="uid://liye5pa4qb1f" path="res://Boat/GLB_Exports/Windows/Textures/Scratches-Textures.jpg" id="1_aokpi"]
+
+[resource]
+transparency = 1
+albedo_color = Color(1, 1, 1, 0.0784314)
+albedo_texture = ExtResource("1_aokpi")
+roughness = 0.1

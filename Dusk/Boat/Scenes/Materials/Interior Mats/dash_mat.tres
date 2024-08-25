@@ -1,0 +1,15 @@
+[gd_resource type="StandardMaterial3D" load_steps=5 format=3 uid="uid://18r5w7g75uyo"]
+
+[ext_resource type="Texture2D" uid="uid://dkfvx5mr2xl5j" path="res://Boat/GLB_Exports/Interior/Dash/textures/dash_mat_BaseColor.png" id="1_0cuog"]
+[ext_resource type="Texture2D" uid="uid://oxs6lgs3tjmr" path="res://Boat/GLB_Exports/Interior/Dash/textures/dash_mat_Metallic.png" id="3_wsa2n"]
+[ext_resource type="Texture2D" uid="uid://b0mtopasoqud1" path="res://Boat/GLB_Exports/Interior/Dash/textures/dash_mat_Normal.png" id="4_rl5iy"]
+[ext_resource type="Texture2D" uid="uid://dnefwn650oxct" path="res://Boat/GLB_Exports/Interior/Dash/textures/dash_mat_Roughness.png" id="5_mxcxp"]
+
+[resource]
+albedo_texture = ExtResource("1_0cuog")
+metallic = 1.0
+metallic_texture = ExtResource("3_wsa2n")
+roughness_texture = ExtResource("5_mxcxp")
+normal_enabled = true
+normal_texture = ExtResource("4_rl5iy")
+heightmap_enabled = true

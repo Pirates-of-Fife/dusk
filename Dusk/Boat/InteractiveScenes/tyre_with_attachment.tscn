@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://bcvei67tq1050"]
+
+[ext_resource type="PackedScene" uid="uid://ewie05go5wgg" path="res://Boat/InteractiveScenes/tyre_rigidbody.tscn" id="1_l6l2s"]
+[ext_resource type="PackedScene" uid="uid://bkd5omgpcfq5s" path="res://Boat/Scenes/tyre_attachment.tscn" id="2_um83j"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_kpusc"]
+rough = true
+absorbent = true
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_1eg7w"]
+points = PackedVector3Array(0.0177639, -0.0346, 0.266625, -0.0191766, -0.00864024, -0.307066, -0.0191103, 0.0105107, -0.306005, -0.307066, -0.00864024, 0.0191766, 0.223444, 0.0415905, 0.223444, -0.223444, 0.0415905, 0.223444, 0.299792, -0.0280588, -0.00963358, 0.223444, 0.0415905, -0.223444, -0.223444, 0.0415905, -0.223444, -0.195514, -0.0346, -0.195514, 0.195514, -0.0346, -0.195514, -0.195514, -0.0346, 0.195514, -0.0203016, 0.0415905, 0.304714, 0.20134, -0.0278084, 0.220501, 0.304714, 0.0415905, -0.0203016, -0.304714, 0.0415905, -0.0203016, -0.00963347, -0.0280585, 0.299789, 0.0203016, 0.0415905, -0.304714, -0.299789, -0.0280585, -0.00963347, 0.00963347, -0.0280585, -0.299789, 0.222718, -0.00872881, -0.222718, -0.222718, -0.00872881, 0.222718, -0.222718, -0.00872881, -0.222718, 0.222187, -0.0346, 0.133312, 0.291309, 0.000955556, 0.0679599, 0.0679594, 0.000955556, 0.291307, 0.222718, -0.00872881, 0.222718, -0.291309, 0.000955556, -0.0679599, 0.0679599, 0.000955556, -0.291309, -0.0679599, 0.000955556, 0.291309, 0.291307, 0.000955556, -0.0679594, -0.0177639, -0.0346, -0.266625)
+
+[node name="TyreWithAttachment" type="Node3D"]
+
+[node name="TyreRigidbody" parent="." instance=ExtResource("1_l6l2s")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, -0.282664, -0.0807089)
+mass = 15.0
+physics_material_override = SubResource("PhysicsMaterial_kpusc")
+gravity_scale = 4.0
+
+[node name="PinJoint3D" type="PinJoint3D" parent="."]
+node_a = NodePath("../StaticBody3D")
+node_b = NodePath("../TyreRigidbody")
+
+[node name="tyre_attachment" parent="." instance=ExtResource("2_um83j")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(-5.85973e-08, 0.491549, 0, -0.491549, -5.85973e-08, 0, 0, 0, 0.491549, 0, 0, 0)
+shape = SubResource("ConvexPolygonShape3D_1eg7w")
+
+[editable path="tyre_attachment"]

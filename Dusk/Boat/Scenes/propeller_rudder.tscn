@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://dkgkyo8elywor"]
+
+[ext_resource type="PackedScene" uid="uid://coj2m0jaobdsn" path="res://Boat/GLB_Exports/Propeller_Rudder/propeller_rudder.glb" id="1_onuah"]
+[ext_resource type="Script" path="res://Boat/InteractiveScenes/Animations/EngineAndRudderAnimation.gd" id="2_04x6f"]
+[ext_resource type="Material" uid="uid://cm61b4fj653v4" path="res://Boat/Scenes/Materials/metal_mat.tres" id="2_r0ehf"]
+
+[node name="propeller_rudder" instance=ExtResource("1_onuah")]
+script = ExtResource("2_04x6f")
+
+[node name="Propeller" parent="." index="0"]
+transform = Transform3D(0.00050704, 0.0113256, -0.0972038, -0.00153979, 0.097194, 0.0113164, 0.0978493, 0.00147079, 0.000681775, 23.6079, -6.25661, 2.8919)
+surface_material_override/0 = ExtResource("2_r0ehf")
+
+[node name="Propeller_001" parent="." index="1"]
+surface_material_override/0 = ExtResource("2_r0ehf")
+
+[node name="Rudder" parent="." index="2"]
+material_override = ExtResource("2_r0ehf")
+
+[node name="Rudder_001" parent="." index="3"]
+surface_material_override/0 = ExtResource("2_r0ehf")

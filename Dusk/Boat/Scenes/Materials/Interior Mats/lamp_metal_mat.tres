@@ -1,0 +1,17 @@
+[gd_resource type="StandardMaterial3D" load_steps=6 format=3 uid="uid://dsjd2x6oa6buw"]
+
+[ext_resource type="Texture2D" uid="uid://cd2imfeefhekg" path="res://Boat/GLB_Exports/Interior/Lamp/textures/lamp_metal_mat_BaseColor.png" id="1_6nr0i"]
+[ext_resource type="Texture2D" uid="uid://cqgkolfmwm12q" path="res://Boat/GLB_Exports/Interior/Lamp/textures/lamp_metal_mat_Displacement.png" id="2_0dq2u"]
+[ext_resource type="Texture2D" uid="uid://dkp8jojq4w46y" path="res://Boat/GLB_Exports/Interior/Lamp/textures/lamp_metal_mat_Metallic.png" id="3_pqp8h"]
+[ext_resource type="Texture2D" uid="uid://c0ci2ag4kvb06" path="res://Boat/GLB_Exports/Interior/Lamp/textures/lamp_metal_mat_Normal.png" id="4_y7mk5"]
+[ext_resource type="Texture2D" uid="uid://dtvjavodyyaqw" path="res://Boat/GLB_Exports/Interior/Lamp/textures/lamp_metal_mat_Roughness.png" id="5_6rynw"]
+
+[resource]
+albedo_texture = ExtResource("1_6nr0i")
+metallic = 1.0
+metallic_texture = ExtResource("3_pqp8h")
+roughness_texture = ExtResource("5_6rynw")
+normal_enabled = true
+normal_texture = ExtResource("4_y7mk5")
+heightmap_enabled = true
+heightmap_texture = ExtResource("2_0dq2u")

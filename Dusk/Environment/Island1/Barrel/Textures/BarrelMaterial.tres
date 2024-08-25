@@ -1,0 +1,14 @@
+[gd_resource type="StandardMaterial3D" load_steps=5 format=3 uid="uid://satg0ypbc18t"]
+
+[ext_resource type="Texture2D" uid="uid://ccw0vlj57i01" path="res://Environment/Island1/Barrel/Textures/Barrel_BaseColor.png" id="1_p18dg"]
+[ext_resource type="Texture2D" uid="uid://pvtawkv0trgl" path="res://Environment/Island1/Barrel/Textures/Barrel_Metallic.png" id="2_icyny"]
+[ext_resource type="Texture2D" uid="uid://c1o0shmr2mjik" path="res://Environment/Island1/Barrel/Textures/Barrel_Normal.png" id="3_rffok"]
+[ext_resource type="Texture2D" uid="uid://etwu8nkarhc8" path="res://Environment/Island1/Barrel/Textures/Barrel_Roughness.png" id="4_y1h61"]
+
+[resource]
+albedo_texture = ExtResource("1_p18dg")
+metallic = 1.0
+metallic_texture = ExtResource("2_icyny")
+roughness_texture = ExtResource("4_y1h61")
+normal_enabled = true
+normal_texture = ExtResource("3_rffok")

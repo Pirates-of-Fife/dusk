@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://dnlptwpr7lf23"]
+
+[ext_resource type="Texture2D" uid="uid://dg38ktr4rabwc" path="res://Boat/GLB_Exports/Boat_Hull/Textures/Boat_Hull_Mat_BaseColor.png" id="2_e1pfk"]
+[ext_resource type="PackedScene" uid="uid://bi8ebqsm3obsa" path="res://InteractableSystem/Interactable.tscn" id="3_3kois"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nqvjv"]
+albedo_color = Color(1, 1, 0.388235, 1)
+albedo_texture = ExtResource("2_e1pfk")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vgvee"]
+size = Vector3(1, 2.7373, 2.93848)
+
+[node name="Huette"]
+
+[node name="HouseWallAndGround" parent="." index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_nqvjv")
+
+[node name="Cube_005" parent="." index="6"]
+transform = Transform3D(0.0207346, 1.59103e-07, -0.636973, 0, 1, 1.22392e-07, 0.0454979, -7.25073e-08, 0.290285, -2.44026, 0.0540196, -1.90007)
+
+[node name="Interactable" parent="Cube_005" index="0" instance=ExtResource("3_3kois")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cube_005/Interactable" index="1"]
+transform = Transform3D(1, 2.27374e-13, 9.53674e-07, 2.22045e-16, 1, -1.77636e-15, 0, 0, 0.999999, 7.62939e-06, 0.868652, 0.969237)
+shape = SubResource("BoxShape3D_vgvee")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="8"]

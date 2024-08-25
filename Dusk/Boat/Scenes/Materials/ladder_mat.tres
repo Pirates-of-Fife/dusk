@@ -1,0 +1,17 @@
+[gd_resource type="StandardMaterial3D" load_steps=6 format=3 uid="uid://1ay88au6b41c"]
+
+[ext_resource type="Texture2D" uid="uid://yq6ak68nfv26" path="res://Boat/GLB_Exports/Ladder/textures/ladder_mat_BaseColor.png" id="1_151pt"]
+[ext_resource type="Texture2D" uid="uid://di4gvw32wbw25" path="res://Boat/GLB_Exports/Ladder/textures/ladder_mat_Displacement.png" id="2_5ky7g"]
+[ext_resource type="Texture2D" uid="uid://pqlwu5ongg6e" path="res://Boat/GLB_Exports/Ladder/textures/ladder_mat_Metallic.png" id="3_ttbht"]
+[ext_resource type="Texture2D" uid="uid://c8vdws3jrbpmv" path="res://Boat/GLB_Exports/Ladder/textures/ladder_mat_Normal.png" id="4_nyg7d"]
+[ext_resource type="Texture2D" uid="uid://c4wwuy36k4ajj" path="res://Boat/GLB_Exports/Ladder/textures/ladder_mat_Roughness.png" id="5_jyo7q"]
+
+[resource]
+albedo_texture = ExtResource("1_151pt")
+metallic = 1.0
+metallic_texture = ExtResource("3_ttbht")
+roughness_texture = ExtResource("5_jyo7q")
+normal_enabled = true
+normal_texture = ExtResource("4_nyg7d")
+heightmap_enabled = true
+heightmap_texture = ExtResource("2_5ky7g")

@@ -1,0 +1,34 @@
+[gd_scene load_steps=6 format=3 uid="uid://cfq8alnqvj3tj"]
+
+[ext_resource type="Script" path="res://Sound/Boat/Engine/EngineSound.gd" id="1_u8en2"]
+[ext_resource type="AudioStream" uid="uid://cc555h4asygui" path="res://Sound/Boat/Engine/engine_M000.wav" id="2_vc8kv"]
+[ext_resource type="AudioStream" uid="uid://dpqonah145laf" path="res://Sound/Boat/Engine/secondEngineNoise.wav" id="3_vfvxv"]
+
+[sub_resource type="Curve" id="Curve_kgi2t"]
+max_value = 2.0
+_data = [Vector2(0, 0.075), 0.0, 0.0, 0, 0, Vector2(0.0150754, 0.175), 0.0, 0.0, 0, 0, Vector2(0.0226131, 0.2375), 0.0, 0.0, 0, 0, Vector2(0.0477387, 0.175), 0.0, 0.0, 0, 0, Vector2(0.0502513, 0.325), 0.0, 0.0, 0, 0, Vector2(0.0778894, 0.3), 0.0, 0.0, 0, 0, Vector2(0.0929648, 0.4625), 0.0, 0.0, 0, 0, Vector2(0.334171, 0.8875), 5.11714, 5.11714, 0, 0, Vector2(1, 2), 0.0, 0.0, 0, 0]
+point_count = 9
+
+[sub_resource type="Curve" id="Curve_lkgkp"]
+max_value = 2.0
+_data = [Vector2(0, 1.0875), 0.0, -3.35297, 0, 0, Vector2(0.0477387, 0.213147), 0.0, 0.0, 0, 0, Vector2(0.698492, 0.821713), 3.25477, 3.25477, 0, 0, Vector2(0.79397, 1.32669), -1.56842, -1.56842, 0, 0, Vector2(1, 2), 0.0, 0.0, 0, 0]
+point_count = 5
+
+[node name="EngineSound" type="Node3D"]
+script = ExtResource("1_u8en2")
+pitch_scale_curve = SubResource("Curve_kgi2t")
+secondary_audio_pitch_scale_curve = SubResource("Curve_lkgkp")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("2_vc8kv")
+volume_db = 36.0
+max_distance = 30.0
+bus = &"Engine"
+
+[node name="AudioStreamPlayer3D2" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("3_vfvxv")
+volume_db = 45.0
+max_distance = 30.0
+bus = &"Engine"
+
+[connection signal="finished" from="AudioStreamPlayer3D" to="." method="_on_audio_stream_player_3d_finished"]

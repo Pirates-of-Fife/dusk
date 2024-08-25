@@ -1,0 +1,142 @@
+[gd_scene load_steps=16 format=3 uid="uid://wsmpltn0glt1"]
+
+[ext_resource type="PackedScene" uid="uid://bmacr6agbv47a" path="res://Boat/Boat/Boat.tscn" id="1_0db3y"]
+[ext_resource type="PackedScene" uid="uid://brh07riyg1qv0" path="res://FirstPersonController/Player.tscn" id="2_sxd6g"]
+[ext_resource type="PackedScene" uid="uid://b047wo4ee5aku" path="res://Sound/Ambience/AmbientSound.tscn" id="3_22gf3"]
+[ext_resource type="PackedScene" uid="uid://dy6d3lmebk50q" path="res://Environment/Island1/Terrain/Island1_Terrain.tscn" id="4_xvs7q"]
+[ext_resource type="PackedScene" uid="uid://b4wyblhah757a" path="res://Environment/Island0/Terrain/Island0_Terrain.tscn" id="5_pc08f"]
+[ext_resource type="PackedScene" uid="uid://bapmikalcjl6e" path="res://Water/WaterMover.tscn" id="6_uxq57"]
+[ext_resource type="PackedScene" uid="uid://bm5mnh8u6adjg" path="res://Environment/Shared/island_sound_controller.tscn" id="7_3gxtv"]
+[ext_resource type="PackedScene" uid="uid://cbgia5gdnq22d" path="res://Environment/Island3/Terrain/Island3_Terrain.tscn" id="8_g1xg2"]
+[ext_resource type="PackedScene" uid="uid://b4dijxrpph0p" path="res://Environment/Island2/Terrain/Island2_Terrain.tscn" id="9_q47qq"]
+[ext_resource type="Script" path="res://Game Manager/GameManager.gd" id="10_0gwdg"]
+[ext_resource type="Environment" uid="uid://cv0fxqar3taw4" path="res://Environment/DuskWorldEnvironment.tres" id="10_1opmm"]
+[ext_resource type="PackedScene" uid="uid://cxf5v42cyr8ga" path="res://Leviathan/LeviathanScreamTrigger.tscn" id="12_ii44y"]
+[ext_resource type="PackedScene" uid="uid://dbjuupu5nn846" path="res://Leviathan/LeviathanBoatSmashTrigger.tscn" id="13_5jxyv"]
+
+[sub_resource type="CameraAttributesPhysical" id="CameraAttributesPhysical_6p5pl"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xacxc"]
+size = Vector3(100, 100, 100)
+
+[node name="Dusk" type="Node3D"]
+
+[node name="Player" parent="." instance=ExtResource("2_sxd6g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 171.047, 20.6105, -46.7618)
+
+[node name="Boat" parent="." instance=ExtResource("1_0db3y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 176.344, 1.86929, -46.7618)
+
+[node name="AmbientSound" parent="." instance=ExtResource("3_22gf3")]
+max_distance = 80.0
+
+[node name="Island1Terrain" parent="." instance=ExtResource("4_xvs7q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1300, -0.93, -394.355)
+visible = false
+
+[node name="Island0Terrain" parent="." instance=ExtResource("5_pc08f")]
+transform = Transform3D(0.123844, 0, 0.992301, 0, 1, 0, -0.992301, 0, 0.123844, 90.97, -2.30322, -18.9957)
+visible = false
+
+[node name="WaterMover" parent="." instance=ExtResource("6_uxq57")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -372)
+
+[node name="IslandSoundController" parent="." instance=ExtResource("7_3gxtv")]
+transform = Transform3D(0.996488, 0, 0.08373, 0, 1, 0, -0.08373, 0, 0.996488, -40.027, 19.0991, -30.5892)
+
+[node name="Island3Terrain" parent="." instance=ExtResource("8_g1xg2")]
+transform = Transform3D(0.995228, 0, 0.0975829, 0, 1, 0, -0.0975829, 0, 0.995228, 2000, 4.982, -1500)
+visible = false
+
+[node name="Island2Terrain" parent="." instance=ExtResource("9_q47qq")]
+transform = Transform3D(0.536578, 0, -0.843851, 0, 1, 0, 0.843851, 0, 0.536578, 455.686, -13.88, -1300)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource("10_1opmm")
+camera_attributes = SubResource("CameraAttributesPhysical_6p5pl")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.345495, -0.93833, 0.0130532, 0, 0.0139098, 0.999903, -0.938421, 0.345461, -0.00480576, 523.629, 8.89441, -269.865)
+light_color = Color(0.980392, 0.941176, 1, 1)
+light_energy = 0.05
+shadow_enabled = true
+shadow_bias = 0.5
+
+[node name="GameManager" type="Node3D" parent="." node_paths=PackedStringArray("player", "boat")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 230, 0, -43)
+script = ExtResource("10_0gwdg")
+player = NodePath("../Player")
+boat = NodePath("../Boat")
+
+[node name="LeviathanScreamTrigger" parent="." instance=ExtResource("12_ii44y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1299.82, 6.17836, -370.121)
+
+[node name="AudioStreamPlayer3D" parent="LeviathanScreamTrigger" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -173.47, 0, 41.7785)
+volume_db = 20.0
+bus = &"Master"
+
+[node name="LeviathanScreamTrigger2" parent="." instance=ExtResource("12_ii44y")]
+transform = Transform3D(-0.5, 0, 0.866025, 0, 1, 0, -0.866025, 0, -0.5, 808, 6.17836, -836.77)
+
+[node name="AudioStreamPlayer3D" parent="LeviathanScreamTrigger2" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -173.47, 0, 41.7785)
+volume_db = 20.0
+bus = &"Master"
+
+[node name="CollisionShape3D" parent="LeviathanScreamTrigger2/Area3D" index="0"]
+shape = SubResource("BoxShape3D_xacxc")
+
+[node name="LeviathanScreamTrigger3" parent="." instance=ExtResource("12_ii44y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 808, 6.17836, -1325.26)
+
+[node name="AudioStreamPlayer3D" parent="LeviathanScreamTrigger3" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -173.47, 0, 41.7785)
+volume_db = 20.0
+bus = &"Master"
+
+[node name="CollisionShape3D" parent="LeviathanScreamTrigger3/Area3D" index="0"]
+shape = SubResource("BoxShape3D_xacxc")
+
+[node name="LeviathanScreamTrigger4" parent="." instance=ExtResource("12_ii44y")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1248.64, 6.17836, -724.499)
+
+[node name="AudioStreamPlayer3D" parent="LeviathanScreamTrigger4" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -173.47, 0, 41.7785)
+volume_db = 20.0
+bus = &"Master"
+
+[node name="CollisionShape3D" parent="LeviathanScreamTrigger4/Area3D" index="0"]
+shape = SubResource("BoxShape3D_xacxc")
+
+[node name="LeviathanScreamTrigger5" parent="." instance=ExtResource("12_ii44y")]
+transform = Transform3D(0.103626, 0, 0.994616, 0, 1, 0, -0.994616, 0, 0.103626, 1520.91, 6.17836, -1432.7)
+
+[node name="AudioStreamPlayer3D" parent="LeviathanScreamTrigger5" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -173.47, 0, 41.7785)
+volume_db = 20.0
+bus = &"Master"
+
+[node name="CollisionShape3D" parent="LeviathanScreamTrigger5/Area3D" index="0"]
+shape = SubResource("BoxShape3D_xacxc")
+
+[node name="LeviathanScreamTrigger6" parent="." instance=ExtResource("12_ii44y")]
+transform = Transform3D(-0.258819, 0, 0.965926, 0, 1, 0, -0.965926, 0, -0.258819, 344.867, 6.17836, -963.995)
+
+[node name="AudioStreamPlayer3D" parent="LeviathanScreamTrigger6" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -173.47, 0, 41.7785)
+volume_db = 20.0
+bus = &"Master"
+
+[node name="CollisionShape3D" parent="LeviathanScreamTrigger6/Area3D" index="0"]
+shape = SubResource("BoxShape3D_xacxc")
+
+[node name="LeviathanBoatSmashTrigger" parent="." instance=ExtResource("13_5jxyv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1555.64, 0, -1512.25)
+
+[editable path="LeviathanScreamTrigger"]
+[editable path="LeviathanScreamTrigger2"]
+[editable path="LeviathanScreamTrigger3"]
+[editable path="LeviathanScreamTrigger4"]
+[editable path="LeviathanScreamTrigger5"]
+[editable path="LeviathanScreamTrigger6"]

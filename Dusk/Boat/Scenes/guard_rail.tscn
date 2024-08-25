@@ -1,0 +1,13 @@
+[gd_scene load_steps=4 format=3 uid="uid://cbcuvh0fykcjk"]
+
+[ext_resource type="PackedScene" uid="uid://dcv722kb8s8nn" path="res://Boat/GLB_Exports/Guardrail/guard_rail.glb" id="1_flt6c"]
+[ext_resource type="Material" uid="uid://defk6a46kh846" path="res://Boat/Scenes/Materials/guard_rail_handle_mat.tres" id="2_1fv46"]
+[ext_resource type="Material" uid="uid://bs6w7wg3pxjex" path="res://Boat/Scenes/Materials/guard_rail_mat.tres" id="3_x8orv"]
+
+[node name="guard_rail" instance=ExtResource("1_flt6c")]
+
+[node name="Floor_001" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_1fv46")
+
+[node name="Floor_002" parent="." index="1"]
+surface_material_override/0 = ExtResource("3_x8orv")

@@ -1,0 +1,30 @@
+[gd_scene load_steps=6 format=3 uid="uid://b047wo4ee5aku"]
+
+[ext_resource type="Script" path="res://Sound/Ambience/AmbientSound.gd" id="1_0xrdn"]
+[ext_resource type="AudioStream" uid="uid://b84hkg2c3kmvi" path="res://Sound/Ambience/ocean_ambiance.wav" id="2_oqsbb"]
+[ext_resource type="AudioStream" uid="uid://cgflncfu61y21" path="res://Sound/Ambience/wind.wav" id="3_rwvc8"]
+[ext_resource type="AudioStream" uid="uid://2iotoduktsgm" path="res://Sound/Ambience/rain.wav" id="4_cgskp"]
+[ext_resource type="PackedScene" uid="uid://dbd4mqwh1jpp1" path="res://Environment/Shared/Thunder/LightningSpawner.tscn" id="5_xscfp"]
+
+[node name="AmbientSound" type="Node3D"]
+script = ExtResource("1_0xrdn")
+min_volume_db = -60.0
+max_volume_db = -10.0
+min_distance = 60.0
+max_distance = 100.0
+
+[node name="OceanSounds" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_oqsbb")
+volume_db = -20.0
+bus = &"Environment"
+
+[node name="WindSounds" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_rwvc8")
+volume_db = -13.0
+bus = &"Environment"
+
+[node name="RainSounds" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_cgskp")
+volume_db = -10.0
+
+[node name="LightningSpawner" parent="." instance=ExtResource("5_xscfp")]

@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://b21gf4wc2r773"]
+
+[ext_resource type="Script" path="res://Leviathan/LeviathanBoatEndTrigger.gd" id="1_auqwc"]
+[ext_resource type="AudioStream" uid="uid://buwqjn6u2hmoe" path="res://Leviathan/Scream.wav" id="2_4827y"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6bect"]
+size = Vector3(14.7206, 12, 13)
+
+[node name="LeviathanBoatEndTrigger" type="Node3D"]
+script = ExtResource("1_auqwc")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.124908, 1.40961, 3)
+shape = SubResource("BoxShape3D_6bect")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -61.3906)
+stream = ExtResource("2_4827y")
+bus = &"Leviathan"
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

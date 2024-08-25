@@ -1,0 +1,83 @@
+[gd_scene load_steps=11 format=3 uid="uid://brh07riyg1qv0"]
+
+[ext_resource type="Script" path="res://FirstPersonController/PlayerController.gd" id="1_gxowu"]
+[ext_resource type="Script" path="res://FirstPersonController/ViewBob.gd" id="2_3llqn"]
+[ext_resource type="PackedScene" uid="uid://by7gk77toq1l7" path="res://InteractableSystem/InteractableSystem.tscn" id="4_6asnr"]
+[ext_resource type="AudioStream" uid="uid://fkkn7jqdho3c" path="res://Sound/Player/concrete_foot_step.wav" id="5_g2i1b"]
+[ext_resource type="Script" path="res://FirstPersonController/Footsteps.gd" id="6_4jqbu"]
+[ext_resource type="PackedScene" uid="uid://v5awb0pva7ab" path="res://UI/Crosshair/Crosshair.tscn" id="7_hsxkr"]
+[ext_resource type="PackedScene" uid="uid://cb860rrvk5fqg" path="res://Environment/Shared/rain_particles.tscn" id="7_pxikp"]
+[ext_resource type="PackedScene" uid="uid://c8wbssrt2ecno" path="res://Map/Map.tscn" id="8_bsrwh"]
+[ext_resource type="AudioStream" uid="uid://0nhs8vw653i0" path="res://Map/map.wav" id="9_f16dv"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_sy628"]
+radius = 0.09
+height = 1.19131
+
+[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("twist_pivot", "pitch_pivot", "camera")]
+collision_layer = 9
+collision_mask = 9
+platform_on_leave = 2
+script = ExtResource("1_gxowu")
+jump_velocity = 3.0
+twist_pivot = NodePath("Head/TwistPivot")
+pitch_pivot = NodePath("Head/TwistPivot/PitchPivot")
+camera = NodePath("Head/TwistPivot/PitchPivot/PlayerCamera")
+float_force = 0.018
+
+[node name="Collider" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.440132, 0)
+shape = SubResource("CapsuleShape3D_sy628")
+
+[node name="Head" type="Node3D" parent="." node_paths=PackedStringArray("camera", "player")]
+script = ExtResource("2_3llqn")
+enable = true
+amplitude = 0.01
+toggle_speed = 0.2
+camera = NodePath("TwistPivot/PitchPivot/PlayerCamera")
+player = NodePath("..")
+
+[node name="TwistPivot" type="Node3D" parent="Head"]
+
+[node name="PitchPivot" type="Node3D" parent="Head/TwistPivot"]
+
+[node name="PlayerCamera" type="Camera3D" parent="Head/TwistPivot/PitchPivot"]
+current = true
+
+[node name="Map" parent="Head/TwistPivot" instance=ExtResource("8_bsrwh")]
+transform = Transform3D(0.07, 0, 0, 0, 0.0656285, -0.0243496, 0, 0.0243496, 0.0656285, 0, -0.27024, -0.21574)
+visible = false
+
+[node name="BuyoancyProbes" type="Node3D" parent="."]
+
+[node name="Marker3D" type="Marker3D" parent="BuyoancyProbes"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.2012, 0)
+
+[node name="InteractableSystem" parent="." node_paths=PackedStringArray("camera") instance=ExtResource("4_6asnr")]
+camera = NodePath("../Head/TwistPivot/PitchPivot/PlayerCamera")
+interaction_distance = 0.8
+
+[node name="FootstepSounds" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.997412, 0)
+stream = ExtResource("5_g2i1b")
+volume_db = -25.0
+script = ExtResource("6_4jqbu")
+walking_footstep_delay = 0.5
+running_footstep_delay = 0.25
+
+[node name="StepTimer" type="Timer" parent="FootstepSounds"]
+wait_time = 0.4
+
+[node name="RainParticles" parent="." instance=ExtResource("7_pxikp")]
+
+[node name="Crosshair" parent="." instance=ExtResource("7_hsxkr")]
+
+[node name="MapSound" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("9_f16dv")
+
+[node name="MapSound2" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("9_f16dv")
+pitch_scale = 0.7
+
+[connection signal="finished" from="FootstepSounds" to="FootstepSounds" method="_on_finished"]
+[connection signal="timeout" from="FootstepSounds/StepTimer" to="FootstepSounds" method="_on_step_timer_timeout"]

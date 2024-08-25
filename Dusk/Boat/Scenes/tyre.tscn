@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://cmtivvmuel2de"]
+
+[ext_resource type="PackedScene" uid="uid://b2mjehlhdmdnd" path="res://Boat/GLB_Exports/Tyre/tyre.glb" id="1_sacuy"]
+[ext_resource type="Material" uid="uid://b2v1fcul2h4m8" path="res://Boat/Scenes/Materials/tyre_mat.tres" id="2_enwic"]
+
+[node name="tyre" instance=ExtResource("1_sacuy")]
+
+[node name="Tyre" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_enwic")

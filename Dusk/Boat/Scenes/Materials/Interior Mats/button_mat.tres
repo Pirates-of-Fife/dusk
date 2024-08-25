@@ -1,0 +1,18 @@
+[gd_resource type="StandardMaterial3D" load_steps=6 format=3 uid="uid://chnqeuiyuobfh"]
+
+[ext_resource type="Texture2D" uid="uid://bluaaw475m8ml" path="res://Boat/GLB_Exports/Interior/Button/textures/button_mat_BaseColor.png" id="1_kxbnv"]
+[ext_resource type="Texture2D" uid="uid://bscmn3j85rghq" path="res://Boat/GLB_Exports/Interior/Button/textures/button_mat_Displacement.png" id="2_v2mg5"]
+[ext_resource type="Texture2D" uid="uid://0yk4q28bsflc" path="res://Boat/GLB_Exports/Interior/Button/textures/button_mat_Metallic.png" id="3_1cq4l"]
+[ext_resource type="Texture2D" uid="uid://4qikb5bhxgg4" path="res://Boat/GLB_Exports/Interior/Button/textures/button_mat_Normal.png" id="4_tk45d"]
+[ext_resource type="Texture2D" uid="uid://cgnqcacu2ab55" path="res://Boat/GLB_Exports/Interior/Button/textures/button_mat_Roughness.png" id="5_qqb7f"]
+
+[resource]
+cull_mode = 2
+albedo_texture = ExtResource("1_kxbnv")
+metallic = 1.0
+metallic_texture = ExtResource("3_1cq4l")
+roughness_texture = ExtResource("5_qqb7f")
+normal_enabled = true
+normal_texture = ExtResource("4_tk45d")
+heightmap_enabled = true
+heightmap_texture = ExtResource("2_v2mg5")

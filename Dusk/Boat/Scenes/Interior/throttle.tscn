@@ -1,0 +1,81 @@
+[gd_scene load_steps=9 format=3 uid="uid://kaaubfbeqmnc"]
+
+[ext_resource type="PackedScene" uid="uid://dvj03c3qn7il2" path="res://Boat/GLB_Exports/Interior/Throttle/throttle.glb" id="1_rytsx"]
+[ext_resource type="Script" path="res://Boat/InteractiveScenes/Animations/ThrottleAnimation.gd" id="2_1d810"]
+[ext_resource type="Material" uid="uid://cmepw11g6ryiq" path="res://Boat/Scenes/Materials/Interior Mats/throttle_mat.tres" id="2_du014"]
+[ext_resource type="AudioStream" uid="uid://bntcgj038iqre" path="res://Sound/Boat/Interior/wheel_turning.wav" id="4_clj1i"]
+
+[sub_resource type="Animation" id="Animation_8hg6u"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AudioStreamPlayer3D:volume_db")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-30.0]
+}
+
+[sub_resource type="Animation" id="Animation_ot7h8"]
+resource_name = "wheel_turn_audio_start"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AudioStreamPlayer3D:volume_db")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-40.0, -35.0]
+}
+
+[sub_resource type="Animation" id="Animation_kdy6u"]
+resource_name = "wheel_turn_audio_stop"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AudioStreamPlayer3D:volume_db")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-35.0, -60.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wmhos"]
+_data = {
+"RESET": SubResource("Animation_8hg6u"),
+"wheel_turn_audio_start": SubResource("Animation_ot7h8"),
+"wheel_turn_audio_stop": SubResource("Animation_kdy6u")
+}
+
+[node name="throttle" instance=ExtResource("1_rytsx")]
+script = ExtResource("2_1d810")
+
+[node name="ThrottleBase" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_du014")
+
+[node name="ThrottleStick" parent="ThrottleBase" index="0"]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -0.231132, -0.185414, 0.000290096)
+surface_material_override/0 = ExtResource("2_du014")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.2186, 0.631364, -1.04409)
+stream = ExtResource("4_clj1i")
+volume_db = -30.0
+pitch_scale = 0.9
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="2"]
+libraries = {
+"": SubResource("AnimationLibrary_wmhos")
+}
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

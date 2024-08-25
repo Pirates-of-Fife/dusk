@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://c5yktol1t26yp"]
+
+[ext_resource type="AudioStream" uid="uid://clthnq4du4c2a" path="res://Sound/Boat/Hull/metal_creak.wav" id="1_5qyjt"]
+[ext_resource type="Script" path="res://Sound/Boat/Hull/HullSounds.gd" id="1_71x77"]
+
+[node name="HullSounds" type="Node3D"]
+script = ExtResource("1_71x77")
+
+[node name="HullAmbiance" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("1_5qyjt")
+volume_db = -20.0
+autoplay = true
+max_distance = 15.0
+bus = &"Environment"
+
+[node name="HitSound" type="AudioStreamPlayer3D" parent="."]
+volume_db = 25.0
+bus = &"Environment"

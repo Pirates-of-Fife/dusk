@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://cgfi2m6l2qasa"]
+
+[ext_resource type="PackedScene" uid="uid://b0i46wqsicypx" path="res://Boat/GLB_Exports/Interior/Box/boxes.glb" id="1_gbwda"]
+[ext_resource type="Material" uid="uid://c7uhjxn04ee0c" path="res://Boat/Scenes/Materials/Interior Mats/box_mat.tres" id="2_rpocl"]
+
+[node name="boxes" instance=ExtResource("1_gbwda")]
+
+[node name="1 SCU Box" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_rpocl")
+
+[node name="1 SCU Box_001" parent="." index="1"]
+surface_material_override/0 = ExtResource("2_rpocl")
+
+[node name="1 SCU Box_002" parent="." index="2"]
+surface_material_override/0 = ExtResource("2_rpocl")
+
+[node name="1 SCU Box_003" parent="." index="3"]
+surface_material_override/0 = ExtResource("2_rpocl")

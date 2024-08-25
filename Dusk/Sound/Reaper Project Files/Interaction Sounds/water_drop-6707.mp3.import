@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://byn4wh5r66f8r"
+path="res://.godot/imported/water_drop-6707.mp3-20fe461e3e09367c72f18455974b132e.mp3str"
+
+[deps]
+
+source_file="res://Sound/Reaper Project Files/Interaction Sounds/water_drop-6707.mp3"
+dest_files=["res://.godot/imported/water_drop-6707.mp3-20fe461e3e09367c72f18455974b132e.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

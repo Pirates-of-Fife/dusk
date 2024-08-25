@@ -1,0 +1,72 @@
+[gd_scene load_steps=9 format=3 uid="uid://cw18h75nlrojg"]
+
+[ext_resource type="Script" path="res://Map/MapPart.gd" id="1_mh3up"]
+[ext_resource type="Texture2D" uid="uid://ddd4l7qsrx4ko" path="res://Map/MapImageFiles/Map_Island_1.png" id="2_hyopq"]
+[ext_resource type="AudioStream" uid="uid://qftuqchihyre" path="res://Map/map_collect.wav" id="3_02njh"]
+[ext_resource type="PackedScene" uid="uid://bi8ebqsm3obsa" path="res://InteractableSystem/Interactable.tscn" id="3_5biqa"]
+[ext_resource type="Texture2D" uid="uid://dcogs2fwisx48" path="res://Map/MapImageFiles/Map_Island_0.png" id="4_y2uig"]
+[ext_resource type="Texture2D" uid="uid://boula563s6f0h" path="res://Map/MapImageFiles/Map_Island_2.png" id="6_gy002"]
+[ext_resource type="Texture2D" uid="uid://2swkvl6komdo" path="res://Map/MapImageFiles/Map_Island_3.png" id="7_4us1c"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8sn5o"]
+size = Vector3(0.242966, 0.169769, 0.279213)
+
+[node name="MapPart" type="Node3D"]
+script = ExtResource("1_mh3up")
+
+[node name="Interactable" parent="." node_paths=PackedStringArray("interaction_shape") instance=ExtResource("3_5biqa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0667431, 0)
+prompt_offset = 0.0
+interaction_shape = NodePath("CollisionShape3D")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Interactable"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0408215, 0.101407, 0.0361167)
+shape = SubResource("BoxShape3D_8sn5o")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("3_02njh")
+
+[node name="MapPart0" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0.0903952, 0, -0.0968703)
+pixel_size = 0.001
+shaded = true
+texture_filter = 0
+texture = ExtResource("4_y2uig")
+
+[node name="MapPart1" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -0.0495146, 0, -0.0905927)
+visible = false
+pixel_size = 0.001
+shaded = true
+texture_filter = 0
+texture = ExtResource("2_hyopq")
+
+[node name="MapPart2" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0.0743595, 0, 0.0342423)
+visible = false
+pixel_size = 0.001
+shaded = true
+texture_filter = 0
+texture = ExtResource("6_gy002")
+
+[node name="MapPart3" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -0.0381322, 0, 0.0641794)
+visible = false
+pixel_size = 0.001
+shaded = true
+texture_filter = 0
+texture = ExtResource("7_4us1c")
+
+[node name="Label3D" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.231201, 0)
+visible = false
+billboard = 1
+modulate = Color(1, 1, 1, 0.192157)
+text = "Press 'm' to open map"
+font_size = 10
+outline_size = 0
+uppercase = true
+
+[connection signal="interact" from="Interactable" to="." method="_on_interactable_interact"]
+[connection signal="looked_at" from="Interactable" to="." method="_on_interactable_looked_at"]
+[connection signal="finished" from="AudioStreamPlayer3D" to="." method="_on_audio_stream_player_3d_finished"]

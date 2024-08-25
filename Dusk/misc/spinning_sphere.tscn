@@ -1,0 +1,37 @@
+[gd_scene load_steps=7 format=3 uid="uid://c1r4qbbpw2bhi"]
+
+[ext_resource type="Script" path="res://misc/spinning_sphere.gd" id="1_b72s4"]
+
+[sub_resource type="Curve" id="Curve_frjbv"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.287425, 1), 0.0, 0.0, 0, 0, Vector2(0.673653, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_dk5w6"]
+curve = SubResource("Curve_frjbv")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_02vwo"]
+emission_shape = 2
+emission_sphere_radius = 4.0
+gravity = Vector3(0, 0, 0)
+alpha_curve = SubResource("CurveTexture_dk5w6")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2yxk6"]
+transparency = 1
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.286275, 0.811765, 0, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_dh8ok"]
+material = SubResource("StandardMaterial3D_2yxk6")
+radius = 0.1
+height = 0.2
+
+[node name="SpinningSphere" type="GPUParticles3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.54973, 8.67294, 5.44776)
+amount = 300
+lifetime = 10.0
+preprocess = 20.0
+local_coords = true
+process_material = SubResource("ParticleProcessMaterial_02vwo")
+draw_pass_1 = SubResource("SphereMesh_dh8ok")
+script = ExtResource("1_b72s4")

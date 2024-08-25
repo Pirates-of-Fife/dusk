@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://c0wwdwl1m4xx8"]
+
+[ext_resource type="PackedScene" uid="uid://cuqyse8wj4ba5" path="res://Environment/Vegitation/Stones/StoneAssets/ruined_rock_fence.glb" id="1_nap3o"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_awhau"]
+size = Vector3(1452, 530, 438)
+
+[node name="Stone1" type="Node3D"]
+
+[node name="Sketchfab_Scene2" parent="." instance=ExtResource("1_nap3o")]
+transform = Transform3D(0.005, 0, 0, 0, 0.005, 0, 0, 0, 0.005, 0, 0, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Sketchfab_Scene2"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Sketchfab_Scene2/StaticBody3D"]
+transform = Transform3D(0.299, 0, 0, 0, 0.299, 0, 0, 0, 0.299, -48.9427, 78.5967, 16.5382)
+shape = SubResource("BoxShape3D_awhau")
